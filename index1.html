@@ -1,181 +1,710 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>আল-আহসান ফাউন্ডেশন বাংলাদেশ</title>
-    <!-- CDN Links Corrected -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>আল-আহসান ফাউন্ডেশন বাংলাদেশ - অফিশিয়াল ওয়েবসাইট</title>
     <style>
-        body { font-family: 'Hind Siliguri', sans-serif; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f7f6;
+            color: #2b2b2b;
+        }
+
+        /* Top Bar & Header */
+        .top-nav {
+            background-color: #0b2e23;
+            color: #d1d5db;
+            font-size: 13px;
+            padding: 8px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        header {
+            background-color: #ffffff;
+            border-bottom: 2px solid #e5e7eb;
+            padding: 12px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-area h1 {
+            font-size: 20px;
+            color: #0b2e23;
+            font-weight: 800;
+        }
+        .logo-area span {
+            font-size: 12px;
+            color: #059669;
+            font-weight: 600;
+            display: block;
+        }
+        .header-btn {
+            background-color: #059669;
+            color: white;
+            padding: 9px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .header-btn:hover {
+            background-color: #047857;
+        }
+
+        /* Navigation Menu Bar */
+        .main-menu {
+            background: #0d382c;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 10px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .menu-btn {
+            background: transparent;
+            color: #e5e7eb;
+            border: none;
+            padding: 8px 14px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.2s;
+        }
+        .menu-btn.active, .menu-btn:hover {
+            background: #059669;
+            color: white;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        /* As-Sunnah Style Donation Card */
+        .donation-card-container {
+            background: #e8b740; /* Golden Yellow color from image */
+            border-radius: 16px;
+            padding: 25px 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            margin-bottom: 30px;
+            color: #1a1a1a;
+            position: relative;
+        }
+        .donation-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+        .donation-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 4px;
+            display: block;
+        }
+        .form-label span {
+            color: #dc2626;
+        }
+        .form-input, .form-select {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            font-size: 14px;
+            outline: none;
+            background: #ffffff;
+        }
+        .donate-submit-btn {
+            background-color: #059669;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.2s;
+            margin-top: 5px;
+        }
+        .donate-submit-btn:hover {
+            background-color: #047857;
+        }
+        .tax-notice {
+            text-align: center;
+            font-size: 13px;
+            color: #374151;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        /* Payment Option Tabs */
+        .method-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            justify-content: center;
+        }
+        .method-btn {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #374151;
+            background: #ffffff;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 13px;
+            text-align: center;
+        }
+        .method-btn.selected {
+            border-color: #0b2e23;
+            background: #0b2e23;
+            color: white;
+        }
+
+        /* As-Sunnah Style Grid Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .feature-card {
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 160px;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+        .card-yellow {
+            background-color: #e5a93c;
+            border: 2px dashed #fcd34d;
+        }
+        .card-purple {
+            background-color: #7e22ce;
+            border: 2px dashed #c084fc;
+        }
+        .card-blue {
+            background-color: #2563eb;
+            border: 2px dashed #93c5fd;
+        }
+        .card-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Section Cards */
+        .content-box {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+        .content-box h3 {
+            font-size: 18px;
+            color: #0b2e23;
+            border-bottom: 2px solid #059669;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        /* NAGAD PAYMENT GATEWAY MODAL (From Image 1000003779) */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+        }
+        .nagad-gateway-box {
+            background-color: #a30d18; /* Nagad Red Theme */
+            color: white;
+            width: 90%;
+            max-width: 420px;
+            border-radius: 16px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .nagad-header-text {
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+        .nagad-foundation-name {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            color: #ffffff;
+        }
+        .nagad-input-label {
+            font-size: 14px;
+            margin-bottom: 12px;
+            display: block;
+            opacity: 0.95;
+        }
+        .nagad-input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 3px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            color: #1a1a1a;
+            outline: none;
+        }
+        .nagad-terms {
+            font-size: 11px;
+            opacity: 0.8;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        .nagad-btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        .nagad-btn-proceed {
+            background: #ffffff;
+            color: #a30d18;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .nagad-btn-close {
+            background: #ffffff;
+            color: #a30d18;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .nagad-footer-logo {
+            font-size: 22px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        /* As-Sunnah Style Dark Green Footer (Image 1000003780) */
+        footer {
+            background-color: #0a2e24;
+            color: #d1d5db;
+            padding: 40px 20px 20px 20px;
+            margin-top: 40px;
+        }
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .footer-about {
+            margin-bottom: 30px;
+            font-size: 14px;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+        .footer-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 25px;
+            margin-bottom: 30px;
+        }
+        .footer-col h4 {
+            color: #ffffff;
+            font-size: 16px;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+        .footer-col ul li a {
+            color: #a7f3d0;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 15px;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .tab-section {
+            display: none;
+        }
+        .tab-section.active {
+            display: block;
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body>
 
-    <!-- TOP BAR (LOCATION & CONTACT) -->
-    <div class="bg-[#0b5c43] text-white py-2 px-4 text-sm">
-        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-            <div>
-                <i class="fa-solid fa-location-dot text-yellow-400 mr-1"></i> দেওয়ানগঞ্জ, জামালপুর, বাংলাদেশ
-            </div>
-            <div class="flex gap-4">
-                <a href="tel:01342556543"><i class="fa-solid fa-phone text-yellow-400 mr-1"></i> ০১৩৪২৫৫৬৫৪৩</a>
-                <a href="tel:+8801644399325"><i class="fa-solid fa-phone text-yellow-400 mr-1"></i> +৮৮০ ১৬৪৪-৩৯৯৩২৫</a>
-            </div>
-        </div>
+    <!-- Top Info Bar -->
+    <div class="top-nav">
+        <div>📍 দেওয়ানগঞ্জ, জামালপুর, বাংলাদেশ | 📞 হটলাইন: ০১৩১২৫১৫৬৪৩</div>
+        <div>আল-আহসান ফাউন্ডেশন বাংলাদেশ</div>
     </div>
 
-    <!-- MAIN HEADER & NAVIGATION -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <!-- BRAND LOGO & TITLE -->
-            <div class="flex items-center gap-3">
-                <div class="h-12 w-12 rounded-full border-2 border-[#0b5c43] bg-emerald-100 flex items-center justify-center font-bold text-[#0b5c43]">Logo</div>
-                <div>
-                    <h1 class="text-xl md:text-2xl font-bold text-[#0b5c43]">আল-আহসান ফাউন্ডেশন</h1>
-                    <p class="text-xs tracking-wider text-gray-500 font-semibold">BANGLADESH</p>
-                </div>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="logo-area">
+                <h1>আল-আহসান ফাউন্ডেশন</h1>
+                <span>AL-AHSAN FOUNDATION BANGLADESH</span>
             </div>
-            <!-- NAV MENU -->
-            <nav class="hidden lg:flex gap-6 font-semibold text-gray-700">
-                <a href="#home" class="hover:text-[#0b5c43] transition">হোম</a>
-                <a href="#about" class="hover:text-[#0b5c43] transition">আমাদের সম্পর্কে</a>
-                <a href="#prayer" class="hover:text-[#0b5c43] transition">নামাজের সময়</a>
-                <a href="#projects" class="hover:text-[#0b5c43] transition">প্রকল্পসমূহ</a>
-                <a href="#donation" class="hover:text-[#0b5c43] transition">ডোনেশন গেটওয়ে</a>
-                <a href="#quran-app" class="hover:text-[#0b5c43] transition text-teal-600 font-bold"><i class="fa-solid fa-book-quran mr-1"></i> কওমি লাইব্রেরি</a>
-            </nav>
-            <!-- DONATE BUTTON -->
-            <a href="#donation" class="bg-gradient-to-r from-emerald-600 to-[#0b5c43] text-white px-5 py-2 rounded-full font-bold shadow-md hover:scale-105 transition transform">
-                <i class="fa-solid fa-heart mr-1 text-red-300"></i> অনুদান দিন
-            </a>
+            <button class="header-btn" onclick="switchSection('home')">দান করুন</button>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="bg-gradient-to-b from-[#0b5c43] to-emerald-900 text-white py-16 px-4 text-center relative overflow-hidden">
-        <div class="container mx-auto max-w-3xl relative z-10">
-            <span class="bg-emerald-800 text-yellow-300 text-xs px-3 py-1 rounded-full font-bold tracking-widest uppercase mb-4 inline-block">প্রতিষ্ঠিত: ২০১৮</span>
-            <h2 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">মানবতার কল্যাণে অনুদান ও সহযোগিতার এক নির্ভরযোগ্য প্ল্যাটফর্ম</h2>
-            <p class="text-emerald-100 text-lg mb-8 max-w-xl mx-auto">社会的 দুস্থ, অসহায় ও সুবিধাবঞ্চিত মানুষের জীবনমান উন্নয়নে আমরা নিরলসভাবে কাজ করে যাচ্ছি।</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#donation" class="bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-yellow-300 transition">সরাসরি অনুদান</a>
-                <a href="#about" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-emerald-900 transition">আমাদের লক্ষ্য</a>
-            </div>
-        </div>
-    </section>
+    <!-- As-Sunnah Style Navigation Menu -->
+    <div class="main-menu">
+        <button class="menu-btn active" onclick="switchSection('home')">হোম</button>
+        <button class="menu-btn" onclick="switchSection('about')">আমাদের সম্পর্কে</button>
+        <button class="menu-btn" onclick="switchSection('projects')">কার্যক্রমসমূহ</button>
+        <button class="menu-btn" onclick="switchSection('quran')">কুরআন ও কিতাব</button>
+        <button class="menu-btn" onclick="switchSection('volunteer')">স্বেচ্ছাসেবক</button>
+        <button class="menu-btn" onclick="switchSection('contact')">যোগাযোগ</button>
+    </div>
 
-    <!-- LIVE CLOCK & PRAYER TIMES SECTION -->
-    <section id="prayer" class="py-12 bg-white px-4">
-        <div class="container mx-auto max-w-5xl">
-            <div class="text-center mb-10">
-                <h3 class="text-2xl md:text-3xl font-bold text-[#0b5c43] mb-2"><i class="fa-regular fa-clock mr-2"></i>অনলাইন ঘড়ি ও নামাজের সময়সূচি</h3>
-                <p class="text-gray-500 text-sm">স্থান: দেওয়ানগঞ্জ, জামালপুর, বাংলাদেশ</p>
-            </div>
+    <div class="container">
+
+        <!-- 1. HOME & DONATION TAB -->
+        <div id="home" class="tab-section active">
             
-            <!-- Dynamic Info Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div class="bg-emerald-50 p-4 rounded-xl text-center border border-emerald-100 shadow-sm">
-                    <p class="text-xs text-gray-500 font-bold uppercase mb-1">চলমান ওয়াক্ত</p>
-                    <p class="text-2xl font-bold text-emerald-800" id="current-waqt">আসোর</p>
-                </div>
-                <div class="bg-amber-50 p-4 rounded-xl text-center border border-amber-100 shadow-sm">
-                    <p class="text-xs text-gray-500 font-bold uppercase mb-1">লাইভ সময়</p>
-                    <p class="text-2xl font-bold text-amber-800" id="live-time">00:00:00 AM</p>
-                </div>
-                <div class="bg-teal-50 p-4 rounded-xl text-center border border-teal-100 shadow-sm">
-                    <p class="text-xs text-gray-500 font-bold uppercase mb-1">তারিখ ও বার</p>
-                    <p class="text-sm font-semibold text-teal-900" id="islamic-date">১৩ রবিউস সানি ১৪৪৮ হি.</p>
-                    <p class="text-xs text-gray-500 mt-1">৯ আশ্বিন, ১৪৩৩ বঙ্গাব্দ</p>
+            <!-- As-Sunnah Style Golden Donation Card (Image 1000003782) -->
+            <div class="donation-card-container">
+                <div class="donation-title">আপনার অনুদান প্রদান করুন</div>
+                <form class="donation-form" onsubmit="handleDonateSubmit(event)">
+                    
+                    <div>
+                        <label class="form-label">তহবিল <span>*</span></label>
+                        <select class="form-select" id="fundSelect" required>
+                            <option value="" disabled selected>নির্বাচন করুন</option>
+                            <option value="general">সাধারণ তহবিল (General Fund)</option>
+                            <option value="zakat">যাকাত তহবিল (Zakat Fund)</option>
+                            <option value="schoolbag">বিনামূল্যে স্কুল ব্যাগ বিতরণ কর্মসূচি ২০২৬</option>
+                            <option value="orphan">এতিম ও শিক্ষা সহায়তা তহবিল</option>
+                            <option value="medical">চিকিৎসা সহায়তা তহবিল</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="form-label">মোবাইল / ইমেইল <span>*</span> 🛈</label>
+                        <input type="text" class="form-input" placeholder="মোবাইল নম্বর / ইমেইল লিখুন" required>
+                    </div>
+
+                    <div>
+                        <label class="form-label">পরিমাণ <span>*</span></label>
+                        <input type="number" class="form-input" placeholder="৳ সংখ্যায় লিখুন" id="amountInput" required>
+                    </div>
+
+                    <div>
+                        <label class="form-label">পেমেন্ট মেথড নির্বাচন করুন</label>
+                        <div class="method-selector">
+                            <div class="method-btn selected" id="methodNagad" onclick="selectMethod('nagad')">নগদ (Nagad)</div>
+                            <div class="method-btn" id="methodBkash" onclick="selectMethod('bkash')">বিকাশ (bKash)</div>
+                            <div class="method-btn" id="methodBank" onclick="selectMethod('bank')">ব্যাংক / কার্ড</div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="donate-submit-btn">দান করুন</button>
+                </form>
+
+                <div class="tax-notice">
+                    আল-আহসান ফাউন্ডেশনে দান করলে কর রেয়াত পাবেন। বিস্তারিত জানতে এখানে ক্লিক করুন।
                 </div>
             </div>
 
-            <!-- Prayer Times Grid -->
-            <div class="grid grid-cols-2 sm:grid-cols-5 gap-4 text-center">
-                <div class="bg-gray-50 p-4 rounded-xl border hover:border-emerald-500 transition shadow-xs">
-                    <p class="font-bold text-gray-700">ফজর</p>
-                    <p class="text-emerald-700 font-bold text-lg mt-1">০৪:০২ AM</p>
+            <!-- As-Sunnah Style Feature Cards (Image 1000003781) -->
+            <div class="card-grid">
+                <div class="feature-card card-yellow" onclick="switchSection('volunteer')">
+                    <div class="card-icon">🖐️</div>
+                    <div class="card-title">স্বেচ্ছাসেবক</div>
                 </div>
-                <div class="bg-gray-50 p-4 rounded-xl border hover:border-emerald-500 transition shadow-xs">
-                    <p class="font-bold text-gray-700">যোহর</p>
-                    <p class="text-emerald-700 font-bold text-lg mt-1">১১:৫১ AM</p>
+                <div class="feature-card card-purple" onclick="alert('আল-আহসান ফাউন্ডেশন ক্যারিয়ার সেকশন শীঘ্রই আসছে।')">
+                    <div class="card-icon">💼</div>
+                    <div class="card-title">ক্যারিয়ার</div>
                 </div>
-                <div class="bg-gray-50 p-4 rounded-xl border hover:border-emerald-500 transition shadow-xs">
-                    <p class="font-bold text-gray-700">আসর</p>
-                    <p class="text-emerald-700 font-bold text-lg mt-1">০৪:১২ PM</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded-xl border hover:border-emerald-500 transition shadow-xs">
-                    <p class="font-bold text-gray-700">মাগরিব</p>
-                    <p class="text-emerald-700 font-bold text-lg mt-1">০৫:৫৪ PM</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded-xl border hover:border-emerald-500 transition shadow-xs col-span-2 sm:col-span-1">
-                    <p class="font-bold text-gray-700">এশা</p>
-                    <p class="text-emerald-700 font-bold text-lg mt-1">০৭:০৮ PM</p>
+                <div class="feature-card card-blue" onclick="switchSection('quran')">
+                    <div class="card-icon">📖</div>
+                    <div class="card-title">অনলাইন কুরআন ও কিতাব</div>
                 </div>
             </div>
-            <div class="mt-4 text-center text-xs text-gray-500 bg-gray-100 py-2 rounded-lg">
-                🌙 সেহরি: ০৪:০১ AM | ইফতার: ০৫:৫৪ PM | কেবলার দিক: পশ্চিম-উত্তর (২৯০°)
+
+            <!-- Banner / Ongoing Project Highlight -->
+            <div class="content-box" style="text-align: center; background: #ffffff; border-left: 5px solid #059669;">
+                <h3 style="color: #0b2e23;">🎒 বিনামূল্যে স্কুল ব্যাগ বিতরণ কর্মসূচি ২০২৬</h3>
+                <p style="font-size: 14px; color: #4b5563; line-height: 1.6;">
+                    সুবিধাবঞ্চিত ও এতিম শিক্ষার্থীদের মাঝে মানসম্মত স্কুল ব্যাগ ও শিক্ষা উপকরণ পৌঁছে দিতে আমাদের এই বিশেষ প্রয়াস। আপনার যাকাত ও সদকার মাধ্যমে এই শিশুদের মুখে হাসি ফোটাতে সহায়তা করুন।
+                </p>
             </div>
         </div>
-    </section>
 
-    <!-- QURAN APP SECTION -->
-    <section id="quran-app" class="py-12 bg-emerald-50 px-4 border-t border-b border-emerald-100">
-        <div class="container mx-auto max-w-5xl">
-            <div class="text-center mb-10">
-                <span class="text-xs bg-emerald-200 text-emerald-800 px-3 py-1 rounded-full font-bold uppercase">নতুন সংযোজন</span>
-                <h3 class="text-2xl md:text-3xl font-bold text-[#0b5c43] mt-2"><i class="fa-solid fa-book-open-reader mr-2"></i>আসসালামু আলাইকুম, কওমি লাইব্রেরি</h3>
-                <p class="text-gray-600 text-sm mt-1">দ্বীনি শিক্ষা ও জ্ঞান অর্জনের জন্য আপনার ডিজিটাল কওমি অ্যাপ</p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <button onclick="openAppModal('কুরআন মাজিদ', 'এখানে সম্পূর্ণ ৩০ পারা কুরআন কারীম বাংলা অনুবাদ ও অডিওসহ পড়ার ব্যবস্থা যুক্ত হচ্ছে...')" class="bg-white p-5 rounded-xl text-center shadow-xs border border-gray-100 hover:border-emerald-500 hover:shadow-md transition group">
-                    <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto text-xl group-hover:scale-110 transition">
-                        <i class="fa-solid fa-book-quran"></i>
-                    </div>
-                    <h4 class="font-bold text-gray-800 mt-3 text-sm sm:text-base">কুরআন মাজিদ</h4>
-                </button>
-                <button onclick="openAppModal('বিষয়ভিত্তিক কুরআন', 'ঈমান, সালাত, যাকাত ও সমসাময়িক বিষয়ের ওপর আয়াত ও তাফসীর সেকশন...')" class="bg-white p-5 rounded-xl text-center shadow-xs border border-gray-100 hover:border-emerald-500 hover:shadow-md transition group">
-                    <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center mx-auto text-xl group-hover:scale-110 transition">
-                        <i class="fa-solid fa-list-ol"></i>
-                    </div>
-                    <h4 class="font-bold text-gray-800 mt-3 text-sm sm:text-base">বিষয়ভিত্তিক কুরআন</h4>
-                </button>
+        <!-- 2. ABOUT SECTION -->
+        <div id="about" class="tab-section">
+            <div class="content-box">
+                <h3>আমাদের সম্পর্কে</h3>
+                <p style="font-size: 14px; color: #374151; line-height: 1.8;">
+                    <strong>আল-আহসান ফাউন্ডেশন বাংলাদেশ</strong> দেওয়ানগঞ্জ, জামালপুর জেলার একটি মানবকল্যাণমূলক ও সেবামূলক সংগঠন। এই প্রতিষ্ঠান মানবতার শিক্ষক, মানুষের মুক্তি ও শান্তির দূত, মানবসেবার আদর্শ মহানবী মুহাম্মদ সা.-এর পদাঙ্ক অনুসরণ করে আর্তমানবতার সেবায় একটি আদর্শ কল্যাণসমাজ বিনির্মাণে চেষ্টা চালিয়ে যাচ্ছে।
+                </p>
             </div>
         </div>
-    </section>
 
-    <!-- MODAL FOR BUTTON CLICK -->
-    <div id="appModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-xl p-6 max-w-md w-full relative">
-            <h3 id="modalTitle" class="text-xl font-bold text-[#0b5c43] mb-2"></h3>
-            <p id="modalBody" class="text-gray-600 text-sm mb-4"></p>
-            <button onclick="closeAppModal()" class="bg-[#0b5c43] text-white px-4 py-2 rounded-lg font-bold w-full">বন্ধ করুন</button>
+        <!-- 3. PROJECTS SECTION -->
+        <div id="projects" class="tab-section">
+            <div class="content-box">
+                <h3>চলমান কার্যক্রমসমূহ</h3>
+                <ul style="font-size: 14px; color: #374151; padding-left: 20px; line-height: 2;">
+                    <li>বিনামূল্যে স্কুল ব্যাগ ও শিক্ষা উপকরণ বিতরণ কর্মসূচি ২০২৬।</li>
+                    <li>অসহায় ও দরিদ্র পরিবারের মাঝে মাসিক খাদ্যসামগ্রী বিতরণ।</li>
+                    <li>কওমি মাদরাসা ও এতিমখানার দরিদ্র শিক্ষার্থীদের শিক্ষা সহায়তা।</li>
+                    <li>জরুরি চিকিৎসা সহায়তা ও শীতবস্ত্র বিতরণ তহবিল।</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 4. QURAN & BOOKS SECTION -->
+        <div id="quran" class="tab-section">
+            <div class="content-box">
+                <h3>📖 অনলাইন কুরআন শরীফ ও কিতাব লাইব্রেরি</h3>
+                <p style="font-size: 13px; color: #6b7280; margin-bottom: 15px;">অনলাইনে বিনামূল্যে কুরআন মাজিদ, হাদিস গ্রন্থ ও মাসআলা কিতাবসমূহ অধ্যয়ন করুন।</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div style="background: #f9fafb; padding: 12px; border-radius: 8px; border: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <strong>📖 পবিত্র কুরআনুল কারীম</strong>
+                            <p style="font-size: 12px; color: #6b7280;">আরবি তিলাওয়াত ও বাংলা অনুবাদ</p>
+                        </div>
+                        <button class="header-btn" style="padding: 6px 12px; font-size: 12px;" onclick="alert('কুরআন পাঠ শুরু হচ্ছে...')">পড়ুন</button>
+                    </div>
+
+                    <div style="background: #f9fafc; padding: 12px; border-radius: 8px; border: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <strong>📚 সহিহ বুখারি শরীফ</strong>
+                            <p style="font-size: 12px; color: #6b7280;">পূর্ণাঙ্গ হাদিস গ্রন্থ সংকলন</p>
+                        </div>
+                        <button class="header-btn" style="padding: 6px 12px; font-size: 12px;" onclick="alert('বুখারি শরীফ ওপেন হচ্ছে...')">পড়ুন</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. VOLUNTEER SECTION -->
+        <div id="volunteer" class="tab-section">
+            <div class="content-box">
+                <h3>স্বেচ্ছাসেবক হিসেবে যুক্ত হন</h3>
+                <p style="font-size: 14px; color: #374151; margin-bottom: 15px;">মানবতার সেবায় আল-আহসান ফাউন্ডেশনের সাথে স্বেচ্ছাসেবক হিসেবে কাজ করতে নিচে আপনার তথ্য দিন।</p>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <input type="text" class="form-input" placeholder="আপনার পূর্ণ নাম">
+                    <input type="text" class="form-input" placeholder="মোবাইল নম্বর">
+                    <input type="text" class="form-input" placeholder="ঠিকানা (দেওয়ানগঞ্জ/অন্যান্য)">
+                    <button class="donate-submit-btn" onclick="alert('ধন্যবাদ! আপনার স্বেচ্ছাসেবক নিবন্ধন গ্রহণ করা হয়েছে।')">নিবন্ধন জমা দিন</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. CONTACT SECTION -->
+        <div id="contact" class="tab-section">
+            <div class="content-box">
+                <h3>যোগাযোগ</h3>
+                <p style="font-size: 14px; color: #374151; line-height: 1.8;">
+                    📍 <strong>ঠিকানা:</strong> দেওয়ানগঞ্জ, জামালপুর, বাংলাদেশ<br>
+                    📞 <strong>হটলাইন:</strong> ০১৩১২৫১৫৬৪৩<br>
+                    ✉️ <strong>ইমেইল:</strong> info@alahsanfoundation.org
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- NAGAD PAYMENT GATEWAY OVERLAY MODAL (Image 1000003779) -->
+    <div class="modal-overlay" id="nagadModal">
+        <div class="nagad-gateway-box">
+            <div class="nagad-header-text">Nagad Direct-Debit Activation</div>
+            
+            <div class="nagad-foundation-name">AL-AHSAN FOUNDATION</div>
+            
+            <label class="nagad-input-label">Your Nagad Account Number</label>
+            <input type="text" class="nagad-input" id="nagadPhone" placeholder="017XXXXXXXX" maxlength="11">
+            
+            <div class="nagad-terms">
+                By clicking/tapping "Proceed" you are agreeing to our <strong>Terms and Conditions</strong>
+            </div>
+
+            <div class="nagad-btn-group">
+                <button class="nagad-btn-proceed" onclick="confirmNagadPayment()">Proceed</button>
+                <button class="nagad-btn-close" onclick="closeNagadModal()">Close</button>
+            </div>
+
+            <div class="nagad-footer-logo">
+                🔴 <span>নগদ</span>
+            </div>
         </div>
     </div>
 
-    <!-- JAVASCRIPT -->
+    <!-- As-Sunnah Style Dark Green Footer (Image 1000003780) -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                এই প্রতিষ্ঠান মানবতার শিক্ষক, মানুষের মুক্তি ও শান্তির দূত, মানবসেবার আদর্শ, মহানবী মুহাম্মদ সা.-এর পদাঙ্ক অনুসরণ করে আর্তমানবতার সেবায় একটি আদর্শ কল্যাণসমাজ বিনির্মাণে যথাশক্তি প্রচেষ্টা চালিয়ে যাচ্ছে।
+            </div>
+
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h4>মেনু</h4>
+                    <ul>
+                        <li><a href="#" onclick="switchSection('about')">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#" onclick="switchSection('projects')">কার্যক্রমসমূহ</a></li>
+                        <li><a href="#" onclick="switchSection('quran')">কুরআন ও কিতাব</a></li>
+                        <li><a href="#" onclick="switchSection('contact')">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>যুক্ত হন</h4>
+                    <ul>
+                        <li><a href="#" onclick="switchSection('home')">নিয়মিত দাতা সদস্য</a></li>
+                        <li><a href="#" onclick="switchSection('home')">আজীবন ও দাতা সদস্য</a></li>
+                        <li><a href="#" onclick="switchSection('volunteer')">স্বেচ্ছাসেবক</a></li>
+                        <li><a href="#" onclick="alert('ক্যারিয়ার সেকশন শীঘ্রই চালু হবে।')">ক্যারিয়ার</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>অন্যান্য</h4>
+                    <ul>
+                        <li><a href="#" onclick="switchSection('contact')">যোগাযোগ</a></li>
+                        <li><a href="#">পরিষেবার শর্তাবলী</a></li>
+                        <li><a href="#">গোপনীয়তা নীতি</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                স্বত্ব © ২০২৬ আল-আহসান ফাউন্ডেশন - সর্ব স্বত্ব সংরক্ষিত
+            </div>
+        </div>
+    </footer>
+
     <script>
-        function updateTime() {
-            const now = new Date();
-            document.getElementById('live-time').innerText = now.toLocaleTimeString();
-        }
-        setInterval(updateTime, 1000);
-        updateTime();
+        let selectedPaymentMethod = 'nagad';
 
-        function openAppModal(title, content) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalBody').innerText = content;
-            document.getElementById('appModal').classList.remove('hidden');
-            document.getElementById('appModal').classList.add('flex');
+        function switchSection(sectionId) {
+            document.querySelectorAll('.tab-section').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.menu-btn').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(sectionId).classList.add('active');
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        function closeAppModal() {
-            document.getElementById('appModal').classList.add('hidden');
-            document.getElementById('appModal').classList.remove('flex');
+        function selectMethod(method) {
+            selectedPaymentMethod = method;
+            document.querySelectorAll('.method-btn').forEach(btn => btn.classList.remove('selected'));
+            
+            if(method === 'nagad') document.getElementById('methodNagad').classList.add('selected');
+            if(method === 'bkash') document.getElementById('methodBkash').classList.add('selected');
+            if(method === 'bank') document.getElementById('methodBank').classList.add('selected');
+        }
+
+        function handleDonateSubmit(event) {
+            event.preventDefault();
+            
+            if(selectedPaymentMethod === 'nagad') {
+                openNagadModal();
+            } else {
+                alert('ধন্যবাদ! আপনার অনুদান রিকোয়েস্ট সফলভাবে গ্রহণ করা হয়েছে।');
+            }
+        }
+
+        function openNagadModal() {
+            document.getElementById('nagadModal').style.display = 'flex';
+        }
+
+        function closeNagadModal() {
+            document.getElementById('nagadModal').style.display = 'none';
+        }
+
+        function confirmNagadPayment() {
+            const phone = document.getElementById('nagadPhone').value;
+            if(phone.length < 11) {
+                alert('অনুগ্রহ করে সঠিক ১১ ডিজিটের নগদ অ্যাকাউন্ট নম্বর দিন।');
+                return;
+            }
+            alert('আপনার নগদ অ্যাকাউন্টে OTP পাঠানো হয়েছে। পেমেন্ট সফলভাবে সম্পন্ন হয়েছে। আল-আহসান ফাউন্ডেশনের পাশে থাকার জন্য ধন্যবাদ!');
+            closeNagadModal();
         }
     </script>
 </body>
-</html>
+</html>  
