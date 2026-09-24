@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আল-আহসান ফাউন্ডেশন বাংলাদেশ - অফিসিয়াল ওয়েবসাইট</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, #0f2c59, #1b3d7a);
+            color: white;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .top-info {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .logo-container {
+            width: 90px;
+            height: 90px;
+            background: #ffffff;
+            border-radius: 50%;
+            margin: 0 auto 12px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            border: 3px solid #10b981;
+            font-size: 32px;
+            color: #10b981;
+            font-weight: bold;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .tagline {
+            font-size: 13px;
+            opacity: 0.85;
+            margin-bottom: 15px;
+        }
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+        
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            padding: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
+            overflow-x: auto;
+            gap: 5px;
+        }
+        .nav-tab {
+            flex: 0 0 auto;
+            text-align: center;
+            padding: 10px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #555;
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+        .nav-tab.active {
+            background: #0f2c59;
+            color: white;
+        }
+
+        /* Sections */
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+
+        /* Prayer Times & Live Clock Card */
+        .prayer-card {
+            background: linear-gradient(135deg, #065f46, #047857);
+            color: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(6, 95, 70, 0.25);
+            margin-bottom: 20px;
+        }
+        .date-info {
+            font-size: 13px;
+            margin-bottom: 15px;
+            opacity: 0.95;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+        }
+        .live-clock-box {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .live-clock {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        .next-prayer-badge {
+            font-size: 14px;
+            background: rgba(255,255,255,0.15);
+            padding: 6px 14px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 500;
+        }
+        .prayer-times-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        .prayer-time-item {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 10px;
+            padding: 8px 4px;
+            text-align: center;
+        }
+        .prayer-name {
+            font-size: 11px;
+            opacity: 0.85;
+            margin-bottom: 2px;
+        }
+        .prayer-time {
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .qibla-sehri-bar {
+            background: rgba(0,0,0,0.15);
+            border-radius: 10px;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        /* Content Card */
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
+        }
+        .content-card h3 {
+            font-size: 18px;
+            color: #0f2c59;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 8px;
+        }
+        
+        /* Chairman Message Style */
+        .chairman-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .chairman-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #0f2c59;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: #64748b;
+        }
+        .chairman-text {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #475569;
+            text-align: justify;
+        }
+
+        /* Payment Gateway Section */
+        .gateway-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .gateway-btn {
+            border: 2px solid #e2e8f0;
+            background: white;
+            border-radius: 10px;
+            padding: 12px 8px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            color: #475569;
+            transition: all 0.2s;
+        }
+        .gateway-btn.selected {
+            border-color: #0f2c59;
+            background: #f8fafc;
+            color: #0f2c59;
+            box-shadow: 0 0 0 2px rgba(15, 44, 89, 0.1);
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 5px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-control:focus {
+            border-color: #0f2c59;
+        }
+        .amount-chips {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .amount-chip {
+            padding: 6px 12px;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .amount-chip:hover {
+            background: #e2e8f0;
+        }
+        .submit-donation {
+            width: 100%;
+            background: #0f2c59;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 10px;
+        }
+        .submit-donation:hover {
+            background: #1b3d7a;
+        }
+
+        /* Quick Action Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .dashboard-card {
+            background: white;
+            padding: 18px 15px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .dashboard-card:hover {
+            transform: translateY(-2px);
+        }
+        .dashboard-card h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-top: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="top-info">
+            <span>📍 দেওয়ানগঞ্জ, জামালপুর, বাংলাদেশ</span>
+            <span>📞 হটলাইন: ০১৩৪২৫৫৬৫৪৩</span>
+        </div>
+        <div class="logo-container">AH</div>
+        <h1>আল-আহসান ফাউন্ডেশন বাংলাদেশ</h1>
+        <p class="tagline">মানবতার কল্যাণে অনুদান ও সহযোগিতার এক নির্ভরযোগ্য প্ল্যাটফর্ম</p>
+    </header>
+
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="switchTab('home')">হোম</button>
+            <button class="nav-tab" onclick="switchTab('chairman')">চেয়ারম্যান</button>
+            <button class="nav-tab" onclick="switchTab('prayer')">নামাজের সময়</button>
+            <button class="nav-tab" onclick="switchTab('donate')">পেমেন্ট গেটওয়ে</button>
+            <button class="nav-tab" onclick="switchTab('quran')">কুরআন ও হাদিস</button>
+            <button class="nav-tab" onclick="switchTab('projects')">প্রকল্প</button>
+            <button class="nav-tab" onclick="switchTab('apply')">আবেদন</button>
+            <button class="nav-tab" onclick="switchTab('contact')">যোগাযোগ</button>
+        </div>
+
+        <!-- 1. HOME SECTION -->
+        <div id="home" class="section active">
+            <div class="content-card" style="text-align: center; background: linear-gradient(135deg, #0f2c59, #1b3d7a); color: white;">
+                <h3 style="color: white; border: none;">আসসালামু আলাইকুম ওয়া রাহমাতুল্লাহ</h3>
+                <p style="color: #e2e8f0; font-size: 14px; text-align: center;">আল-আহসান ফাউন্ডেশন বাংলাদেশ-এর অফিশিয়াল ওয়েবসাইটে আপনাকে স্বাগতম। আর্তমানবতার সেবা এবং দ্বীনি ও সামাজিক উন্নয়নে আমরা নিরলস কাজ করে যাচ্ছি।</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="dashboard-card" onclick="switchTab('donate')">
+                    <h4 style="color: #059669;">💰 সরাসরি পেমেন্ট ও ডোনেশন গেটওয়ে</h4>
+                </div>
+                <div class="dashboard-card" onclick="switchTab('prayer')">
+                    <h4 style="color: #d97706;">⏰ লাইভ ঘড়ি ও নামাজের সময়সূচি</h4>
+                </div>
+                <div class="dashboard-card" onclick="switchTab('quran')">
+                    <h4 style="color: #2563eb;">📖 অনলাইন কুরআন ও হাদিস</h4>
+                </div>
+                <div class="dashboard-card" onclick="switchTab('chairman')">
+                    <h4 style="color: #7c3aed;">👔 চেয়ারম্যানের বাণী</h4>
+                </div>
+                <div class="dashboard-card" onclick="switchTab('projects')">
+                    <h4 style="color: #0891b2;">🤝 চলমান প্রকল্পসমূহ</h4>
+                </div>
+                <div class="dashboard-card" onclick="switchTab('apply')">
+                    <h4 style="color: #dc2626;">📄 সহায়তার আবেদন ফর্ম</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. CHAIRMAN'S MESSAGE SECTION -->
+        <div id="chairman" class="section">
+            <div class="content-card">
+                <h3>চেয়ারম্যানের বাণী</h3>
+                <div class="chairman-box">
+                    <div class="chairman-img">AH</div>
+                    <div>
+                        <h4 style="font-size: 16px; color: #0f2c59; font-weight: 700;">প্রতিষ্ঠাতা ও চেয়ারম্যান</h4>
+                        <p style="font-size: 13px; color: #64748b;">আল-আহসান ফাউন্ডেশন বাংলাদেশ</p>
+                    </div>
+                </div>
+                <div class="chairman-text">
+                    <p style="margin-bottom: 10px;">"বিসমিল্লাহির রাহমানির রাহিম। মানবসেবাই পরম ধর্ম এবং আর্তমানবতার সেবা করা আমাদের নৈতিক ও ইমানী দায়িত্ব। আল-আহসান ফাউন্ডেশন বাংলাদেশ প্রতিষ্ঠার পর থেকেই দেওয়ানগঞ্জ ও এর আশপাশের এলাকার সুবিধাবঞ্চিত, এতিম ও দরিদ্র মানুষের কল্যাণে নিরলসভাবে কাজ করে যাচ্ছে।"</p>
+                    <p style="margin-bottom: 10px;">"আমাদের লক্ষ্য হলো সমাজের প্রতিটি স্তরে শিক্ষার আলো ছড়িয়ে দেওয়া, দুস্থদের মুখে হাসি ফোটানো এবং একটি আত্মনির্ভরশীল ও মানবিক সমাজ গড়ে তোলা। আপনাদের সকলের সদকা, যাকাত ও সহযোগিতাই আমাদের এই পথচলার মূল শক্তি।"</p>
+                    <p>আল্লাহ আমাদের এই ক্ষুদ্র প্রয়াসকে কবুল করুন এবং মানবতার কল্যাণে আরও বেশি কাজ করার তাওফিক দিন। আমিন।</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. PRAYER TIME & LIVE CLOCK SECTION -->
+        <div id="prayer" class="section">
+            <div class="prayer-card">
+                <h3 style="margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 8px;">⏰ লাইভ ঘড়ি ও নামাজের সময়সূচি</h3>
+                <div class="date-info">
+                    <span>📅 হিজরি: ১৩ রবিউস সানি ১৪৪৮ হিজরি</span>
+                    <span>🗓️ বাংলা: ৯ আশ্বিন ১৪৩৩ বঙ্গাব্দ</span>
+                    <span>📍 স্থান: দেওয়ানগঞ্জ, জামালপুর</span>
+                </div>
+                <div class="live-clock-box">
+                    <div class="live-clock" id="liveClockFull">১২:০০:০০ am</div>
+                    <div class="next-prayer-badge">কিবলা কম্পাস ও দিক: পশ্চিম (২৯০°)</div>
+                </div>
+                <div class="prayer-times-grid">
+                    <div class="prayer-time-item"><div class="prayer-name">ফজর</div><div class="prayer-time">০৪:০২ am</div></div>
+                    <div class="prayer-time-item"><div class="prayer-name">যোহর</div><div class="prayer-time">১১:৫১ am</div></div>
+                    <div class="prayer-time-item"><div class="prayer-name">আসর</div><div class="prayer-time">০৪:১২ pm</div></div>
+                    <div class="prayer-time-item"><div class="prayer-name">মাগরিব</div><div class="prayer-time">০৫:৫৪ pm</div></div>
+                    <div class="prayer-time-item"><div class="prayer-name">এশা</div><div class="prayer-time">০৭:০৮ pm</div></div>
+                </div>
+                <div style="background: rgba(0,0,0,0.15); border-radius: 10px; padding: 12px; text-align: center; font-size: 13px;">
+                    ℹ️ সূর্যোদয়: ০৫:৩৯ am | সূর্যাস্ত: ০৫:৫৪ pm | তাহাজ্জুদ শুরু: রাত ০২:১৫ am
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. PAYMENT GATEWAY SECTION -->
+        <div id="donate" class="section">
+            <div class="content-card">
+                <h3>অনলাইন পেমেন্ট ও ডোনেশন গেটওয়ে</h3>
+                <p style="font-size: 13px; color: #64748b; margin-bottom: 15px;">আপনার যাকাত, সদকা বা অনুদান সরাসরি বিকাশ বা নগদ মার্চেন্ট/পার্সোনাল নম্বরে প্রদান করুন।</p>
+                
+                <div class="gateway-options">
+                    <div class="gateway-btn selected" onclick="selectGateway(this, 'bkash')">বিকাশ (bKash)</div>
+                    <div class="gateway-btn" onclick="selectGateway(this, 'nagad')">নগদ (Nagad)</div>
+                    <div class="gateway-btn" onclick="selectGateway(this, 'rocket')">রকেট (Rocket)</div>
+                </div>
+
+                <div class="form-group">
+                    <label id="gateway-label">বিকাশ অ্যাকাউন্ট নম্বর (মার্চেন্ট/পার্সোনাল)</label>
+                    <input type="text" class="form-control" value="01312515643 (অফিসিয়াল নম্বর)" readonly style="background: #f1f5f9; font-weight: bold;">
+                </div>
+
+                <div class="form-group">
+                    <label>অনুদানের পরিমাণ (টাকা)</label>
+                    <div class="amount-chips">
+                        <div class="amount-chip" onclick="setAmount(100)">১০০ টাকা</div>
+                        <div class="amount-chip" onclick="setAmount(500)">৫০০ টাকা</div>
+                        <div class="amount-chip" onclick="setAmount(1000)">১০০০ টাকা</div>
+                        <div class="amount-chip" onclick="setAmount(5000)">৫০০০ টাকা</div>
+                    </div>
+                    <input type="number" id="donationAmount" class="form-control" placeholder="পরিমাণ লিখুন (যেমন: ৫০০)" value="500">
+                </div>
+
+                <div class="form-group">
+                    <label>আপনার নাম ও মোবাইল নম্বর</label>
+                    <input type="text" class="form-control" placeholder="নাম ও ফোন নম্বর লিখুন">
+                </div>
+
+                <button class="submit-donation" onclick="alert('ধন্যবাদ! আপনার পেমেন্ট রিকোয়েস্ট সফলভাবে গ্রহণ করা হয়েছে। পেমেন্ট সম্পন্ন করতে আপনার মোবাইল ব্যাংকিং অ্যাপে রিডাইরেক্ট করা হচ্ছে।')">পেমেন্ট সম্পন্ন করুন</button>
+            </div>
+        </div>
+
+        <!-- 5. QURAN & HADITH SECTION (NEW) -->
+        <div id="quran" class="section">
+            <div class="content-card">
+                <h3>📖 অনলাইন কুরআন, হাদিস ও ইসলামী বই</h3>
+                <p style="font-size: 13px; color: #64748b; margin-bottom: 15px;">কুরআনুল কারীম, হাদিসের কিতাব ও রাসূলের (সা.) সুন্নাহ অধ্যয়ন করুন।</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 14px; border-radius: 10px;">
+                        <h4 style="color: #0f2c59; font-size: 15px; margin-bottom: 4px;">📖 কুরআন মাজিদ অধ্যয়ন</h4>
+                        <p style="font-size: 13px; color: #475569;">পবিত্র কুরআনের তেলাওয়াত, অর্থ ও তাফসির অনলাইন পাঠ করুন।</p>
+                    </div>
+
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 14px; border-radius: 10px;">
+                        <h4 style="color: #0f2c59; font-size: 15px; margin-bottom: 4px;">📚 হাদিসের কিতাবসমূহ</h4>
+                        <p style="font-size: 13px; color: #475569;">সহিহ বুখারি, সহিহ মুসলিম ও অন্যান্য প্রখ্যাত হাদিস গ্রন্থসমূহ।</p>
+                    </div>
+
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 14px; border-radius: 10px;">
+                        <h4 style="color: #0f2c59; font-size: 15px; margin-bottom: 4px;">💡 রাসূলের (সা.) সুন্নাহ ও সীরাত</h4>
+                        <p style="font-size: 13px; color: #475569;">নবীজীর (সা.) সুন্নাহ এবং সীরাতুন নবী সম্পর্কে জানুন ও জীবন পরিচালনা করুন।</p>
+                    </div>
+
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 14px; border-radius: 10px;">
+                        <h4 style="color: #0f2c59; font-size: 15px; margin-bottom: 4px;">🏷️ ইসলামী ও কওমি কিতাব লাইব্রেরি</h4>
+                        <p style="font-size: 13px; color: #475569;">বিভিন্ন মাসআলা-মাসায়েল ও ফতোয়া বিষয়ক প্রয়োজনীয় ইসলামিক বইপত্র।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. PROJECTS SECTION -->
+        <div id="projects" class="section">
+            <div class="content-card">
+                <h3>আল-আহসান ফাউন্ডেশনের চলমান প্রকল্পসমূহ</h3>
+                <ul style="font-size: 14px; color: #475569; padding-left: 20px; display: flex; flex-direction: column; gap: 12px; margin-top: 10px; line-height: 1.6;">
+                    <li><strong>বিনামূল্যে স্কুল ব্যাগ বিতরণ কর্মসূচি ২০২৬:</strong> সুবিধাবंचित ও এতিম শিক্ষার্থীদের মাঝে মানসম্মত স্কুল ব্যাগ ও শিক্ষা উপকরণ বিতরণ।</li>
+                    <li><strong>অসহায় ও দরিদ্র পরিবার সহায়তা:</strong> প্রতি মাসে হতদরিদ্র পরিবারের মাঝে খাদ্যসামগ্রী ও জরুরি আর্থিক অনুদান প্রদান।</li>
+                    <li><strong>শিক্ষা ও দীনি কার্যক্রম:</strong> কওমি মাদরাসা ও এতিমখানার দরিদ্র শিক্ষার্থীদের পড়াশোনায় সহযোগিতা।</li>
+                    <li><strong>চিকিৎসা সহায়তা তহবিল:</strong> গরিব ও মারাত্মক অসুস্থ রোগীদের অপারেশন ও ওষুধ কেনার জন্য আর্থিক সহায়তা।</li>
+                    <li><strong>শীতবস্ত্র বিতরণ কর্মসূচি:</strong> শীত মৌসুমে শীতার্ত মানুষের মাঝে কম্বল ও গরম কাপড় বিতরণ।</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 7. SUPPORT REQUEST SECTION -->
+        <div id="apply" class="section">
+            <div class="content-card">
+                <h3>সহায়তার আবেদন ফর্ম</h3>
+                <p style="font-size: 13px; color: #64748b; margin-bottom: 15px;">আপনি বা আপনার পরিচিত কোনো দুস্থ ব্যক্তি সহায়তার প্রয়োজন হলে নিচের ফর্মটি পূরণ করুন।</p>
+                
+                <div class="form-group">
+                    <label>আবেদনকারীর নাম</label>
+                    <input type="text" class="form-control" placeholder="পূর্ণ নাম লিখুন">
+                </div>
+                <div class="form-group">
+                    <label>মোবাইল নম্বর</label>
+                    <input type="text" class="form-control" placeholder="যোগাযোগের নম্বর">
+                </div>
+                <div class="form-group">
+                    <label>ঠিকানা (গ্রাম, উপজেলা, জেলা)</label>
+                    <input type="text" class="form-control" placeholder="যেমন: দেওয়ানগঞ্জ, জামালপুর">
+                </div>
+                <div class="form-group">
+                    <label>সহায়তার ধরণ</label>
+                    <select class="form-control">
+                        <option>চিকিৎসা সহায়তা</option>
+                        <option>শিক্ষা সহায়তা</option>
+                        <option>খাদ্য সহায়তা</option>
+                        <option>অন্যান্য</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>সমস্যার বিস্তারিত বিবরণ ও আর্থিক অবস্থা</label>
+                    <textarea class="form-control" rows="3" placeholder="আপনার বর্তমান আর্থিক অবস্থা ও সমস্যাটি সংক্ষেপে লিখুন..."></textarea>
+                </div>
+                <button class="submit-donation" onclick="alert('আপনার সহায়তার আবেদনটি সফলভাবে জমা হয়েছে। আমাদের টিম যাচাই-বাছাই করে আপনার সাথে যোগাযোগ করবে।')">আবেদন জমা দিন</button>
+            </div>
+        </div>
+
+        <!-- 8. ABOUT US SECTION -->
+        <div id="about" class="section">
+            <div class="content-card">
+                <h3>আমাদের সম্পর্কে</h3>
+                <p style="font-size: 14px; color: #475569; line-height: 1.7; margin-bottom: 12px;">
+                    <strong>আল-আহসান ফাউন্ডেশন বাংলাদেশ</strong> প্রতিষ্ঠিত হয়েছে ২০১৮ সালে। এটি দেওয়ানগঞ্জ, জামালপুর জেলার একটি অরাজনৈতিক, অলাভজনক এবং সম্পূর্ণ মানবকল্যাণমূলক সংগঠন।
+                </p>
+                <p style="font-size: 14px; color: #475569; line-height: 1.7; margin-bottom: 12px;">
+                    আমাদের মূল লক্ষ্য হলো সুবিধাবঞ্চিত মানুষের জীবনযাত্রার মান উন্নয়ন করা, শিক্ষার প্রসার ঘটানো এবং সমাজে ন্যায়বিচার ও পারস্পরিক সহযোগিতার পরিবেশ তৈরি করা।
+                </p>
+                <p style="font-size: 14px; color: #475569; line-height: 1.7;">
+                    প্রতিষ্ঠার পর থেকে দেওয়ানগঞ্জ উপজেলার বিভিন্ন প্রান্তে আমরা নিয়মিত ত্রাণ বিতরণ, শিক্ষা উপকরণ বিতরণ, চিকিৎসা সহায়তা এবং বিভিন্ন সেবামূলক কার্যক্রম পরিচালনা করে আসছি।
+                </p>
+            </div>
+        </div>
+
+        <!-- 9. CONTACT SECTION -->
+        <div id="contact" class="section">
+            <div class="content-card">
+                <h3>যোগাযোগ ও হটলাইন</h3>
+                <div style="font-size: 14px; color: #475569; line-height: 1.8; display: flex; flex-direction: column; gap: 10px;">
+                    <div>📍 <strong>ঠিকানা:</strong> দেওয়ানগঞ্জ, জামালপুর, বাংলাদেশ</div>
+                    <div>📞 <strong>হটলাইন:</strong> ০১৩১২৫১৫৬৪৩, +৮৮০ ৯৬১১-৩৯৯৩১৫</div>
+                    <div>✉️ <strong>ইমেইল:</strong> info@alahsanfoundation.org</div>
+                    <div>🌐 <strong>ওয়েবসাইট:</strong> alahsanfoundationinfo-op.github.io</div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            &copy; ২০২৬ আল-আহসান ফাউন্ডেশন বাংলাদেশ। সর্বস্বত্ব সংরক্ষিত।
+        </footer>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function selectGateway(element, gateway) {
+            document.querySelectorAll('.gateway-btn').forEach(btn => btn.classList.remove('selected'));
+            element.classList.add('selected');
+
+            let label = document.getElementById('gateway-label');
+            if(gateway === 'bkash') {
+                label.innerText = "বিকাশ অ্যাকাউন্ট নম্বর (মার্চেন্ট/পার্সোনাল)";
+            } else if(gateway === 'nagad') {
+                label.innerText = "নগদ অ্যাকাউন্ট নম্বর (মার্চেন্ট/পার্সোনাল)";
+            } else if(gateway === 'rocket') {
+                label.innerText = "রকেট অ্যাকাউন্ট নম্বর";
+            }
+        }
+
+        function setAmount(val) {
+            document.getElementById('donationAmount').value = val;
+        }
+
+        // Live Clock Update
+        function updateLiveClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const ampm = hours >= 12 ? 'pm' : 'am';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            const formattedHours = String(hours).padStart(2, '0');
+            
+            const timeString = `${formattedHours}:${minutes}:${seconds} ${ampm}`;
+            
+            const clockEl1 = document.getElementById('liveClockFull');
+            if(clockEl1) clockEl1.innerText = timeString;
+        }
+        setInterval(updateLiveClock, 1000);
+        updateLiveClock();
+    </script>
+</body>
+</html>
