@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আল-আহসান ফাউন্ডেশন বাংলাদেশ</title>
+    <style>
+        :root {
+            --primary-color: #0a3d62;
+            --secondary-color: #3c6382;
+            --accent-color: #e58e26;
+            --bg-color: #f7f9fa;
+            --text-color: #2f3640;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'SolaimanLipi', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            text-align: center;
+            padding: 35px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .logo-container {
+            width: 85px;
+            height: 85px;
+            margin: 0 auto 15px auto;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border: 3px solid rgba(255,255,255,0.8);
+        }
+
+        .logo-container img {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        header h1 {
+            font-size: 26px;
+            margin-bottom: 5px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        header p {
+            font-size: 15px;
+            color: #dcdde1;
+            font-weight: 300;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #072e4d;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            padding: 8px 14px;
+            margin: 4px;
+            font-size: 14px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            border-left: 5px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 18px;
+            font-size: 22px;
+            position: relative;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f1f2f6;
+        }
+
+        p {
+            color: #57606f;
+            margin-bottom: 12px;
+            text-align: justify;
+            font-size: 16px;
+        }
+
+        /* Chairman Section Styling */
+        .chairman-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        @media(min-width: 650px) {
+            .chairman-box {
+                flex-direction: row;
+                align-items: flex-start;
+                text-align: left;
+            }
+        }
+
+        .chairman-photo-wrap {
+            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .chairman-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Donation Section Styling */
+        .donation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .pay-card {
+            background: #fdfefe;
+            border: 1px solid #dfe4ea;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+
+        .pay-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 5px 15px rgba(10, 61, 98, 0.1);
+        }
+
+        .pay-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .number-badge {
+            background: #f1f2f6;
+            padding: 8px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: var(--text-color);
+            margin: 12px 0;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Application Form Styling (অনুদানের আবেদন ফরম) */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 15px;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dcdde1;
+            border-radius: 6px;
+            font-size: 15px;
+            background-color: #fafbfc;
+            color: var(--text-color);
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(10, 61, 98, 0.2);
+        }
+
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 14px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #072e4d;
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 14px;
+            border-top: 4px solid var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Logo -->
+    <header>
+        <div class="logo-container">
+            <img src="1000003749_2.jpg" alt="Logo">
+        </div>
+        <h1>আল-আহসান ফাউন্ডেশন বাংলাদেশ</h1>
+        <p>মানবতার কল্যাণে অনুদান ও সহযোগিতার আস্থার ঠিকানা</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#home">হোম</a>
+        <a href="#about">আমাদের সম্পর্কে</a>
+        <a href="#chairman">চেয়ারম্যানের বাণী</a>
+        <a href="#projects">প্রকল্পসমূহ</a>
+        <a href="#donation">ডোনেশন (অনুদান প্রদান)</a>
+        <a href="#apply">সহায়তার আবেদন</a>
+        <a href="#contact">যোগাযোগ</a>
+    </nav>
+
+    <div class="container" id="home">
+        <!-- লক্ষ্য ও উদ্দেশ্য -->
+        <div class="card" id="about">
+            <h2>আমাদের লক্ষ্য ও উদ্দেশ্য</h2>
+            <p>আল-আহসান ফাউন্ডেশন বাংলাদেশ একটি সম্পূর্ণ অরাজনৈতিক ও সেবামূলক প্রতিষ্ঠান। সমাজের দুস্থ, অসহায়, ও সুবিধাবঞ্চিত মানুষের জীবনমান উন্নয়নে আমরা নিরলসভাবে কাজ করে যাচ্ছি। আপনার ক্ষুদ্র সহযোগিতা সমাজে একটি বড় ইতিবাচক পরিবর্তন আনতে পারে।</p>
+            <p>২০১৮ সাল থেকে প্রতিষ্ঠিত হয়ে আমরা সমাজের অবহেলিত, এতিম ও দরিদ্র মানুষের পাশে দাঁড়িয়ে নিয়মিত মানবিক ও দাতব্য কার্যক্রম পরিচালনা করে আসছি।</p>
+        </div>
+
+        <!-- চেয়ারম্যানের বাণী -->
+        <div class="card" id="chairman">
+            <h2>চেয়ারম্যানের বাণী</h2>
+            <div class="chairman-box">
+                <div class="chairman-photo-wrap">
+                    <img src="1000003653.jpg" alt="Chairman" class="chairman-photo">
+                </div>
+                <div>
+                    <p>“মানবসেবাই পরম ধর্ম। আমাদের সমাজের সুবিধাবঞ্চিত মানুষের মুখে হাসি ফোটানোর প্রত্যয় নিয়েই আল-আহসান ফাউন্ডেশনের যাত্রা শুরু হয়েছিল। আপনাদের সকলের আন্তরিক সহযোগিতায় আমরা আর্তমানবতার সেবায় কাজ চালিয়ে যাচ্ছি।”</p>
+                    <p style="margin-top: 10px;"><b>— প্রতিষ্ঠাতা ও চেয়ারম্যান</b><br><span style="color: var(--primary-color);">আল-আহসান ফাউন্ডেশন বাংলাদেশ</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- প্রকল্পসমূহ -->
+        <div class="card" id="projects">
+            <h2>প্রকল্পসমূহ ও বিতরণ কর্মসূচি</h2>
+            <p>আমাদের নিয়মিত এবং জরুরি মানবিক কার্যক্রমের মধ্যে রয়েছে:</p>
+            <ul style="margin-left: 20px; line-height: 1.8; color: #57606f;">
+                <li>বিনামূল্যে স্কুল ব্যাগ ও শিক্ষা উপকরণ বিতরণ প্রকল্প ২০২৬</li>
+                <li>দুস্থ ও অসহায়দের মাঝে খাদ্যসামগ্রী ও ত্রাণ বিতরণ</li>
+                <li>জরুরি চিকিৎসা সহায়তা ও স্বাস্থ্যসেবা ক্যাম্প</li>
+                <li>শীতবস্ত্র বিতরণ ও পুনর্বাসন প্রকল্প</li>
+            </ul>
+        </div>
+
+        <!-- ডোনেশন বা অনুদান প্রদানের সিস্টেম -->
+        <div class="card" id="donation">
+            <h2>ডোনেশন (অনুদান প্রদান সিস্টেম)</h2>
+            <p>আপনার যাকাত, সদকা ও সাধারণ অনুদান সরাসরি আমাদের অফিশিয়াল মোবাইল ব্যাংকিং নম্বরে পাঠাতে পারেন। পেমেন্ট করার পর নিচের হটলাইন নম্বরে যোগাযোগ করে নিশ্চিত করুন:</p>
+            
+            <div class="donation-grid">
+                <!-- বিকাশ -->
+                <div class="pay-card">
+                    <h3>বিকাশ (bKash)</h3>
+                    <p style="font-size: 13px; color: #718093;">পার্সোনাল / মার্চেন্ট</p>
+                    <div class="number-badge">০১৩১২৫১৫৬৪৩</div>
+                </div>
+
+                <!-- নগদ -->
+                <div class="pay-card">
+                    <h3>নগদ (Nagad)</h3>
+                    <p style="font-size: 13px; color: #718093;">পার্সোনাল / মার্চেন্ট</p>
+                    <div class="number-badge">০১৩১২৫১৫৬৪৩</div>
+                </div>
+
+                <!-- রকেট -->
+                <div class="pay-card">
+                    <h3>রকেট (Rocket)</h3>
+                    <p style="font-size: 13px; color: #718093;">একাউন্ট নম্বর</p>
+                    <div class="number-badge">০১৩১২৫১৫৬৪৩</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- অনুদান বা সহায়তা গ্রহণের আবেদন ফরম -->
+        <div class="card" id="apply">
+            <h2>সহায়তার আবেদন ফরম (অনুদান গ্রহণের জন্য)</h2>
+            <p>য တ্তাঁরা বা যারা প্রকৃতপক্ষেই অসহায়, দুস্থ কিংবা আর্থিক সংকটে রয়েছেন এবং ফাউন্ডেশন থেকে সহযোগিতা বা অনুদান পেতে চান, তারা নিচের ফরমটি পূরণ করে আবেদন করতে পারেন:</p>
+            
+            <form onsubmit="event.preventDefault(); alert('আপনার অনুদানের আবেদন সফলভাবে জমা হয়েছে। ফাউন্ডেশনের পক্ষ থেকে শীঘ্রই আপনার সাথে যোগাযোগ করা হবে।');">
+                <div class="form-group">
+                    <label for="name">আবেদনকারীর পূর্ণ নাম *</label>
+                    <input type="text" id="name" placeholder="আপনার নাম লিখুন" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">মোবাইল নম্বর *</label>
+                    <input type="tel" id="phone" placeholder="যেমন: 017XXXXXXXX" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">পূর্ণ ঠিকানা (গ্রাম, উপজেলা, জেলা) *</label>
+                    <textarea id="address" rows="3" placeholder="আপনার বর্তমান ঠিকানা বিস্তারিত লিখুন" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">কি ধরনের সহযোগিতা/অনুদান চাচ্ছেন? *</label>
+                    <select id="category" required>
+                        <option value="">-- সহযোগিতা বা অনুদানের খাত নির্বাচন করুন --</option>
+                        <option value="medical">চিকিৎসা সহায়তা</option>
+                        <option value="food">খাদ্যসামগ্রী / নিত্যপ্রয়োজনীয় খাদ্য সহায়তা</option>
+                        <option value="education">শিক্ষা উপকরণ / পড়াশোনা সংক্রান্ত সহায়তা</option>
+                        <option value="financial">আর্থিক বা ব্যবসা পুনর্বাসন সহায়তা</option>
+                        <option value="other">অন্যান্য জরুরি সহায়তা</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="financial-status">বর্তমান আর্থিক অবস্থা ও কারণ বিবরণ *</label>
+                    <textarea id="financial-status" rows="4" placeholder="আপনার বর্তমান আর্থিক অবস্থা কেমন, কেন আপনার এই সহায়তার প্রয়োজন তা বিস্তারিত লিখুন..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">আবেদন জমা দিন</button>
+            </form>
+        </div>
+
+        <!-- যোগাযোগ -->
+        <div class="card" id="contact">
+            <h2>যোগাযোগ</h2>
+            <p><b>প্রধান কার্যালয়:</b> দেওয়ানগঞ্জ, জামালপুর, বাংলাদেশ।</p>
+            <p><b>হটলাইন:</b> +৮৮০ ৯৬১১-৩৯৯৩১৫</p>
+            <p><b>অনুদান ও আবেদন হটলাইন:</b> ০১৩১২৫১৫৬৪৩</p>
+            <p><b>অফিসিয়াল ওয়েবসাইট:</b> alahsanfoundation.bd.org</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; ২০২৬ আল-আহসান ফাউন্ডেশন বাংলাদেশ। সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
+
+</body>
+</html>
