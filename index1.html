@@ -3,494 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>আল-আহসান ফাউন্ডেশন বাংলাদেশ - অফিসিয়াল ওয়েবসাইট</title>
+    <title>আল-আহসান ফাউন্ডেশন বাংলাদেশ</title>
+    <!-- Tailwind CSS for Modern UI -->
+    <script src="https://jsdelivr.net"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <!-- Google Fonts for Bengali -->
+    <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-        body {
-            background-color: #f4f7fa;
-            color: #2c3e50;
-        }
-        header {
-            background: #0f2c59;
-            color: white;
-            padding: 25px 15px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .top-info {
-            font-size: 13px;
-            opacity: 0.85;
-            margin-bottom: 12px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        h1 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-        .tagline {
-            font-size: 13px;
-            opacity: 0.8;
-        }
-        .container {
-            max-width: 650px;
-            margin: 0 auto;
-            padding: 15px;
-        }
-        
-        /* Navigation Tabs */
-        .nav-tabs {
-            display: flex;
-            background: white;
-            border-radius: 10px;
-            padding: 5px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-            overflow-x: auto;
-            gap: 5px;
-        }
-        .nav-tab {
-            flex: 0 0 auto;
-            text-align: center;
-            padding: 10px 14px;
-            font-size: 13px;
-            font-weight: 600;
-            color: #0f2c59;
-            background: transparent;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: all 0.2s;
-        }
-        .nav-tab.active {
-            background: #0f2c59;
-            color: white;
-        }
-
-        /* Sections */
-        .section {
-            display: none;
-        }
-        .section.active {
-            display: block;
-        }
-
-        /* Content Card */
-        .content-card {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-            border-top: 4px solid #0f2c59;
-        }
-        .content-card h3 {
-            font-size: 18px;
-            color: #0f2c59;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 8px;
-        }
-        
-        /* Chairman Message Style */
-        .chairman-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 12px;
-            margin-bottom: 15px;
-        }
-        .chairman-text {
-            font-size: 14px;
-            line-height: 1.7;
-            color: #4a5568;
-            text-align: justify;
-        }
-
-        /* Payment Gateway Section */
-        .gateway-options {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        .gateway-btn {
-            border: 2px solid #cbd5e1;
-            background: white;
-            border-radius: 8px;
-            padding: 10px;
-            text-align: center;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 13px;
-            color: #475569;
-        }
-        .gateway-btn.selected {
-            border-color: #0f2c59;
-            background: #f1f5f9;
-            color: #0f2c59;
-        }
-        .form-group {
-            margin-bottom: 12px;
-        }
-        .form-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            color: #334155;
-            margin-bottom: 5px;
-        }
-        .form-control {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            font-size: 14px;
-            outline: none;
-        }
-        .form-control:focus {
-            border-color: #0f2c59;
-        }
-        .amount-chips {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-        }
-        .amount-chip {
-            padding: 6px 12px;
-            background: #f1f5f9;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            font-size: 13px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-        .submit-btn {
-            width: 100%;
-            background: #0f2c59;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 6px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        .submit-btn:hover {
-            background: #1b3d7a;
-        }
-
-        /* Quick Action Cards */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-        .dashboard-card {
-            background: white;
-            padding: 20px 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-            text-align: center;
-            cursor: pointer;
-            border-left: 4px solid #0f2c59;
-            transition: transform 0.2s;
-        }
-        .dashboard-card:hover {
-            transform: translateY(-2px);
-        }
-        .dashboard-card h4 {
-            font-size: 14px;
-            font-weight: 600;
-            color: #0f2c59;
-        }
-        
-        /* Quran & Book Reader UI */
-        .book-item {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .book-info h4 {
-            font-size: 15px;
-            color: #0f2c59;
-            margin-bottom: 4px;
-        }
-        .book-info p {
-            font-size: 12px;
-            color: #64748b;
-        }
-        .read-btn {
-            background: #0f2c59;
-            color: white;
-            padding: 6px 14px;
-            border-radius: 5px;
-            font-size: 12px;
-            border: none;
-            cursor: pointer;
-        }
-
-        footer {
-            text-align: center;
-            padding: 15px;
-            font-size: 12px;
-            color: #64748b;
-            margin-top: 20px;
-            border-top: 1px solid #e2e8f0;
-        }
+        body { font-family: 'Hind Siliguri', sans-serif; }
     </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800">
 
-    <header>
-        <div class="top-info">
-            <span>📍 দেওয়ানগঞ্জ, জামালপুর, বাংলাদেশ</span>
-            <span>📞 হটলাইন: ০১৩১২৫১৫৬৪৩</span>
-        </div>
-        <h1>আল-আহসান ফাউন্ডেশন বাংলাদেশ</h1>
-        <p class="tagline">মানবতার কল্যাণে অনুদান ও সহযোগিতার এক নির্ভরযোগ্য প্ল্যাটফর্ম</p>
-    </header>
-
-    <div class="container">
-        <!-- Navigation Tabs -->
-        <div class="nav-tabs">
-            <button class="nav-tab active" onclick="switchTab('home')">হোম</button>
-            <button class="nav-tab" onclick="switchTab('chairman')">চেয়ারম্যান</button>
-            <button class="nav-tab" onclick="switchTab('prayer')">নামাজের সময়</button>
-            <button class="nav-tab" onclick="switchTab('donate')">ডোনেশন</button>
-            <button class="nav-tab" onclick="switchTab('quran')">কুরআন ও কিতাব</button>
-            <button class="nav-tab" onclick="switchTab('projects')">প্রকল্প</button>
-            <button class="nav-tab" onclick="switchTab('apply')">আবেদন</button>
-            <button class="nav-tab" onclick="switchTab('contact')">যোগাযোগ</button>
-        </div>
-
-        <!-- 1. HOME SECTION -->
-        <div id="home" class="section active">
-            <div class="content-card" style="text-align: center; background: #0f2c59; color: white; border-top: none;">
-                <h3 style="color: white; border: none;">আসসালামু আলাইকুম ওয়া রাহমাতুল্লাহ</h3>
-                <p style="color: #e2e8f0; font-size: 14px;">আল-আহসান ফাউন্ডেশন বাংলাদেশ-এর অফিশিয়াল ওয়েবসাইটে স্বাগতম। আর্তমানবতার সেবা এবং দ্বীনি উন্নয়নে আমরা প্রতিশ্রুতিবদ্ধ।</p>
+    <!-- TOP BAR (LOCATION & CONTACT) -->
+    <div class="bg-[#0b5c43] text-white py-2 px-4 text-sm">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div>
+                <i class="fa-solid fa-location-dot text-yellow-400 mr-1"></i> দেওয়ানগঞ্জ, জামালপুর, বাংলাদেশ
             </div>
-
-            <div class="card-grid">
-                <div class="dashboard-card" onclick="switchTab('donate')">
-                    <h4>💰 সরাসরি ডোনেশন গেটওয়ে</h4>
-                </div>
-                <div class="dashboard-card" onclick="switchTab('prayer')">
-                    <h4>⏰ নামাজের সময় ও কিবলা</h4>
-                </div>
-                <div class="dashboard-card" onclick="switchTab('quran')">
-                    <h4>📖 কুরআন ও ইসলামিক কিতাব</h4>
-                </div>
-                <div class="dashboard-card" onclick="switchTab('chairman')">
-                    <h4>👔 চেয়ারম্যানের বাণী</h4>
-                </div>
-                <div class="dashboard-card" onclick="switchTab('projects')">
-                    <h4>🤝 চলমান প্রকল্পসমূহ</h4>
-                </div>
-                <div class="dashboard-card" onclick="switchTab('apply')">
-                    <h4>📄 সহায়তার আবেদন</h4>
-                </div>
+            <div class="flex gap-4">
+                <a href="tel:01342556543"><i class="fa-solid fa-phone text-yellow-400 mr-1"></i> ০১৩৪২৫৫৬৫৪৩</a>
+                <a href="tel:+8801644399325"><i class="fa-solid fa-phone text-yellow-400 mr-1"></i> +৮৮০ ১৬৪৪-৩৯৯৩২৫</a>
             </div>
         </div>
-
-        <!-- 2. CHAIRMAN'S MESSAGE SECTION -->
-        <div id="chairman" class="section">
-            <div class="content-card">
-                <h3>চেয়ারম্যানের বাণী</h3>
-                <div class="chairman-box">
-                    <div>
-                        <h4 style="font-size: 16px; color: #0f2c59; font-weight: 700;">প্রতিষ্ঠাতা ও চেয়ারম্যান</h4>
-                        <p style="font-size: 13px; color: #64748b;">আল-আহসান ফাউন্ডেশন বাংলাদেশ</p>
-                    </div>
-                </div>
-                <div class="chairman-text">
-                    <p style="margin-bottom: 10px;">"বিসমিল্লাহির রাহমানির রাহিম। মানবসেবাই পরম ধর্ম এবং আর্তমানবতার সেবা করা আমাদের নৈতিক ও ইমানী দায়িত্ব। আল-আহসান ফাউন্ডেশন বাংলাদেশ প্রতিষ্ঠার পর থেকেই দেওয়ানগঞ্জ ও এর আশপাশের এলাকার সুবিধাবঞ্চিত মানুষের কল্যাণে কাজ করে যাচ্ছে।"</p>
-                    <p>আল্লাহ আমাদের এই ক্ষুদ্র প্রয়াসকে কবুল করুন এবং মানবতার কল্যাণে আরও বেশি কাজ করার তাওফিক দিন। আমিন।</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 3. PRAYER TIME SECTION -->
-        <div id="prayer" class="section">
-            <div class="content-card">
-                <h3>⏰ নামাজের সময়সূচি ও কিবলা দিক</h3>
-                <div style="font-size: 14px; line-height: 1.8; color: #4a5568; margin-bottom: 15px;">
-                    <p>📍 <strong>স্থান:</strong> দেওয়ানগঞ্জ, জামালপুর</p>
-                    <p>🕋 <strong>কেबलার দিক:</strong> পশ্চিম-উত্তর (২৯০°)</p>
-                </div>
-                <div style="background: #f8fafc; padding: 12px; border-radius: 8px; text-align: center; font-weight: bold; color: #0f2c59;">
-                    ফজর: ০৪:০২ am | যোহর: ১১:৫১ am | আসর: ০৪:১২ pm | মাগরিব: ০৫:৫৪ pm | এশা: ০৭:০৮ pm
-                </div>
-            </div>
-        </div>
-
-        <!-- 4. PAYMENT GATEWAY SECTION -->
-        <div id="donate" class="section">
-            <div class="content-card">
-                <h3>অনলাইন ডোনেশন গেটওয়ে</h3>
-                <p style="font-size: 13px; color: #64748b; margin-bottom: 15px;">আপনার যাকাত, সদকা ও অনুদান নিচের মাধ্যমগুলোতে প্রদান করুন।</p>
-                
-                <div class="gateway-options">
-                    <div class="gateway-btn selected" onclick="selectGateway(this, 'bkash')">বিকাশ</div>
-                    <div class="gateway-btn" onclick="selectGateway(this, 'nagad')">নগদ</div>
-                    <div class="gateway-btn" onclick="selectGateway(this, 'rocket')">রকেট</div>
-                </div>
-
-                <div class="form-group">
-                    <label id="gateway-label">অফিসিয়াল অ্যাকাউন্ট নম্বর</label>
-                    <input type="text" class="form-control" value="01312515643 (মার্চেন্ট/পার্সোনাল)" readonly style="background: #f8fafc; font-weight: bold;">
-                </div>
-
-                <div class="form-group">
-                    <label>অনুদানের পরিমাণ (টাকা)</label>
-                    <div class="amount-chips">
-                        <div class="amount-chip" onclick="setAmount(100)">১০০</div>
-                        <div class="amount-chip" onclick="setAmount(500)">৫০০</div>
-                        <div class="amount-chip" onclick="setAmount(1000)">১০০০</div>
-                        <div class="amount-chip" onclick="setAmount(5000)">৫০০০</div>
-                    </div>
-                    <input type="number" id="donationAmount" class="form-control" value="500">
-                </div>
-
-                <div class="form-group">
-                    <label>আপনার নাম ও মোবাইল নম্বর</label>
-                    <input type="text" class="form-control" placeholder="নাম ও ফোন নম্বর">
-                </div>
-
-                <button class="submit-btn" onclick="alert('ধন্যবাদ! আপনার পেমেন্ট রিকোয়েস্ট সফলভাবে গ্রহণ করা হয়েছে।')">পেমেন্ট সম্পন্ন করুন</button>
-            </div>
-        </div>
-
-        <!-- 5. QURAN & ISLAMIC BOOKS SECTION -->
-        <div id="quran" class="section">
-            <div class="content-card">
-                <h3>📖 অনলাইন কুরআন শরীফ ও ইসলামিক লাইব্রেরি</h3>
-                <p style="font-size: 13px; color: #64748b; margin-bottom: 15px;">নিচে থেকে পবিত্র কুরআন মাজিদ ও প্রয়োজনীয় ইসলামিক কিতাবসমূহ সরাসরি পড়তে পারবেন।</p>
-                
-                <div class="book-item">
-                    <div class="book-info">
-                        <h4>📖 পবিত্র কুরআনুল কারীম (আল-কুরআন)</h4>
-                        <p>আরবি তিলাওয়াত, বাংলা উচ্চারণ ও তাফসিরসহ সম্পূর্ণ কুরআন।</p>
-                    </div>
-                    <button class="read-btn" onclick="alert('কুরআন শরীফ রিডার লোড হচ্ছে...')">পড়ুন</button>
-                </div>
-
-                <div class="book-item">
-                    <div class="book-info">
-                        <h4>📚 সহিহ বুখারি শরীফ</h4>
-                        <p>প্রখ্যাত হাদিস গ্রন্থ ও মাসআলা ভিত্তিক সংকলন।</p>
-                    </div>
-                    <button class="read-btn" onclick="alert('সহিহ বুখারি কিতাবটি ওপেন হচ্ছে...')">পড়ুন</button>
-                </div>
-
-                <div class="book-item">
-                    <div class="book-info">
-                        <h4>💡 রাসূলের (সা.) সুন্নাহ ও সীরাত</h4>
-                        <p>নবীজীর জীবন ও আদর্শ ভিত্তিক সীরাত গ্রন্থ।</p>
-                    </div>
-                    <button class="read-btn" onclick="alert('সীরাত গ্রন্থ ওপেন হচ্ছে...')">পড়ুন</button>
-                </div>
-
-                <div class="book-item">
-                    <div class="book-info">
-                        <h4>🏷️ কওমি ও ইসলামিক মাসআলা কিতাব</h4>
-                        <p>দৈনন্দিন জীবনের প্রয়োজনীয় দ্বীনি মাসআলা-মাসায়েল।</p>
-                    </div>
-                    <button class="read-btn" onclick="alert('ইসলামিক কিতাব লাইব্রেরি ওপেন হচ্ছে...')">পড়ুন</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- 6. PROJECTS SECTION -->
-        <div id="projects" class="section">
-            <div class="content-card">
-                <h3>চলমান প্রকল্পসমূহ</h3>
-                <ul style="font-size: 14px; color: #4a5568; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; line-height: 1.6;">
-                    <li>বিনামূল্যে স্কুল ব্যাগ ও শিক্ষা উপকরণ বিতরণ কর্মসূচি।</li>
-                    <li>অসহায় ও দরিদ্র পরিবারের মাঝে নিয়মিত খাদ্যসামগ্রী প্রদান।</li>
-                    <li>মাদরাসা ও এতিমখানার দরিদ্র শিক্ষার্থীদের পড়াশোনায় সহযোগিতা।</li>
-                    <li>অসুস্থ ও গরিব রোগীদের চিকিৎসা সহায়তা তহবিল।</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- 7. APPLICATION SECTION -->
-        <div id="apply" class="section">
-            <div class="content-card">
-                <h3>সহায়তার আবেদন ফর্ম</h3>
-                <div class="form-group">
-                    <label>আবেদনকারীর নাম</label>
-                    <input type="text" class="form-control" placeholder="পূর্ণ নাম">
-                </div>
-                <div class="form-group">
-                    <label>মোবাইল নম্বর</label>
-                    <input type="text" class="form-control" placeholder="যোগাযোগের নম্বর">
-                </div>
-                <div class="form-group">
-                    <label>ঠিকানা</label>
-                    <input type="text" class="form-control" placeholder="গ্রাম, উপজেলা, জেলা">
-                </div>
-                <div class="form-group">
-                    <label>সমস্যার বিবরণ</label>
-                    <textarea class="form-control" rows="3" placeholder="বিস্তারিত লিখুন..."></textarea>
-                </div>
-                <button class="submit-btn" onclick="alert('আপনার আবেদনটি সফলভাবে জমা হয়েছে।')">আবেদন জমা দিন</button>
-            </div>
-        </div>
-
-        <!-- 8. CONTACT SECTION -->
-        <div id="contact" class="section">
-            <div class="content-card">
-                <h3>যোগাযোগ</h3>
-                <p style="font-size: 14px; color: #4a5568; line-height: 1.8;">
-                    📍 ঠিকানা: দেওয়ানগঞ্জ, জামালপুর, বাংলাদেশ<br>
-                    📞 হটলাইন: ০১৩১২৫১৫৬৪৩<br>
-                    ✉️ ইমেইল: info@alahsanfoundation.org
-                </p>
-            </div>
-        </div>
-
-        <footer>
-            &copy; ২০২৬ আল-আহসান ফাউন্ডেশন বাংলাদেশ। সর্বস্বত্ব সংরক্ষিত।
-        </footer>
     </div>
 
-    <script>
-        function switchTab(tabId) {
-            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+    <!-- MAIN HEADER & NAVIGATION -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- BRAND LOGO & TITLE -->
+            <div class="flex items-center gap-3">
+                <img src="https://ibb.co" alt="Al-Ahsan Logo" class="h-14 w-14 rounded-full border-2 border-[#0b5c43]">
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold text-[#0b5c43]">আল-আহসান ফাউন্ডেশন</h1>
+                    <p class="text-xs tracking-wider text-gray-500 font-semibold">BANGLADESH</p>
+                </div>
+            </div>
+            <!-- NAV MENU -->
+            <nav class="hidden lg:flex gap-6 font-semibold text-gray-700">
+                <a href="#home" class="hover:text-[#0b5c43] transition">হোম</a>
+                <a href="#about" class="hover:text-[#0b5c43] transition">আমাদের সম্পর্কে</a>
+                <a href="#prayer" class="hover:text-[#0b5c43] transition">নামাজের সময়</a>
+                <a href="#projects" class="hover:text-[#0b5c43] transition">প্রকল্পসমূহ</a>
+                <a href="#donation" class="hover:text-[#0b5c43] transition">ডোনেশন গেটওয়ে</a>
+                <a href="#quran-app" class="hover:text-[#0b5c43] transition text-teal-600 font-bold"><i class="fa-solid fa-book-quran mr-1"></i> কওমি লাইব্রেরি</a>
+            </nav>
+            <!-- DONATE BUTTON -->
+            <a href="#donation" class="bg-gradient-to-r from-emerald-600 to-[#0b5c43] text-white px-5 py-2 rounded-full font-bold shadow-md hover:scale-105 transition transform">
+                <i class="fa-solid fa-heart mr-1 text-red-300"></i> অনুদান দিন
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="bg-gradient-to-b from-[#0b5c43] to-emerald-900 text-white py-16 px-4 text-center relative overflow-hidden">
+        <div class="container mx-auto max-w-3xl relative z-10">
+            <span class="bg-emerald-800 text-yellow-300 text-xs px-3 py-1 rounded-full font-bold tracking-widest uppercase mb-4 inline-block">প্রতিষ্ঠিত: ২০১৮</span>
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">মানবতার কল্যাণে অনুদান ও সহযোগিতার এক নির্ভরযোগ্য প্ল্যাটফর্ম</h2>
+            <p class="text-emerald-100 text-lg mb-8 max-w-xl mx-auto">সমাজের দুস্থ, অসহায় ও সুবিধাবঞ্চিত মানুষের জীবনমান উন্নয়নে আমরা নিরলসভাবে কাজ করে যাচ্ছি।</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#donation" class="bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-yellow-300 transition">সরাসরি অনুদান</a>
+                <a href="#about" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-emerald-900 transition">আমাদের লক্ষ্য</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE CLOCK & PRAYER TIMES SECTION -->
+    <section id="prayer" class="py-12 bg-white px-4">
+        <div class="container mx-auto max-w-5xl">
+            <div class="text-center mb-10">
+                <h3 class="text-2xl md:text-3xl font-bold text-[#0b5c43] mb-2"><i class="fa-regular fa-clock mr-2"></i>অনলাইন ঘড়ি ও নামাজের সময়সূচি</h3>
+                <p class="text-gray-500 text-sm">স্থান: দেওয়ানগঞ্জ, জামালপুর, বাংলাদেশ</p>
+            </div>
             
-            document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
+            <!-- Dynamic Info Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-emerald-50 p-4 rounded-xl text-center border border-emerald-100 shadow-sm">
+                    <p class="text-xs text-gray-500 font-bold uppercase mb-1">চলমান ওয়াক্ত</p>
+                    <p class="text-2xl font-bold text-emerald-800" id="current-waqt">লোডিং...</p>
+                </div>
+                <div class="bg-amber-50 p-4 rounded-xl text-center border border-amber-100 shadow-sm">
+                    <p class="text-xs text-gray-500 font-bold uppercase mb-1">লাইভ সময়</p>
+                    <p class="text-2xl font-bold text-amber-800" id="live-time">00:00:00 AM</p>
+                </div>
+                <div class="bg-teal-50 p-4 rounded-xl text-center border border-teal-100 shadow-sm">
+                    <p class="text-xs text-gray-500 font-bold uppercase mb-1">তারিখ ও বার</p>
+                    <p class="text-sm font-semibold text-teal-900" id="islamic-date">১৩ রবিউস সানি ১৪৪৮ হি.</p>
+                    <p class="text-xs text-gray-500 mt-1">৯ আশ্বিন, ১৪৩৩ বঙ্গাব্দ</p>
+                </div>
+            </div>
 
-        function selectGateway(element, gateway) {
-            document.querySelectorAll('.gateway-btn').forEach(btn => btn.classList.remove('selected'));
-            element.classList.add('selected');
-        }
+            <!-- Prayer Times Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-4 text-center">
+                <div class="bg-gray-50 p-4 rounded-xl border hover:border-emerald-500 transition shadow-xs">
+                    <p class="font-bold text-gray-700">ফজর</p>
+                    <p class="text-emerald-700 font-bold text-lg mt-1">০৪:০২ AM</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-xl border hover:border-emerald-500 transition shadow-xs">
+                    <p class="font-bold text-gray-700">যোহর</p>
+                    <p class="text-emerald-700 font-bold text-lg mt-1">১১:৫১ AM</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-xl border hover:border-emerald-500 transition shadow-xs">
+                    <p class="font-bold text-gray-700">আসর</p>
+                    <p class="text-emerald-700 font-bold text-lg mt-1">MD:১২ PM</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-xl border hover:border-emerald-500 transition shadow-xs">
+                    <p class="font-bold text-gray-700">মাগরিব</p>
+                    <p class="text-emerald-700 font-bold text-lg mt-1">০৫:৫৪ PM</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-xl border hover:border-emerald-500 transition shadow-xs col-span-2 sm:col-span-1">
+                    <p class="font-bold text-gray-700">এশা</p>
+                    <p class="text-emerald-700 font-bold text-lg mt-1">০৭:০৮ PM</p>
+                </div>
+            </div>
+            <div class="mt-4 text-center text-xs text-gray-500 bg-gray-100 py-2 rounded-lg">
+                🌙 সেহরি: ০৪:০১ AM | ইফতার: ০৫:৫৪ PM | কেবলার দিক: পশ্চিম-উত্তর (২৯০°)
+            </div>
+        </div>
+    </section>
 
-        function setAmount(val) {
-            document.getElementById('donationAmount').value = val;
-        }
-    </script>
-</body>
-</html>
+    <!-- NEW FEATURE: কওমি লাইব্রেরি ও কোরআন অ্যাপ সেকশন -->
+    <section id="quran-app" class="py-12 bg-emerald-50 px-4 border-t border-b border-emerald-100">
+        <div class="container mx-auto max-w-5xl">
+            <div class="text-center mb-10">
+                <span class="text-xs bg-emerald-200 text-emerald-800 px-3 py-1 rounded-full font-bold uppercase">নতুন সংযোজন</span>
+                <h3 class="text-2xl md:text-3xl font-bold text-[#0b5c43] mt-2"><i class="fa-solid fa-book-open-reader mr-2"></i>আসসালামু আলাইকুম, কওমি লাইব্রেরি</h3>
+                <p class="text-gray-600 text-sm mt-1">দ্বীনি শিক্ষা ও জ্ঞান অর্জনের জন্য আপনার ডিজিটাল কওমি অ্যাপ</p>
+            </div>
+
+            <!-- App Dashboard/Grid Layout -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- App Button 1 -->
+                <button onclick="openAppModal('কুরআন মাজিদ', 'এখানে সম্পূর্ণ ৩০ পারা কুরআন কারীম বাংলা অনুবাদ ও অডিওসহ পড়ার ব্যবস্থা যুক্ত হচ্ছে...')" class="bg-white p-5 rounded-xl text-center shadow-xs border border-gray-100 hover:border-emerald-500 hover:shadow-md transition group">
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto text-xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-book-quran"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800 mt-3 text-sm sm:text-base">কুরআন মাজিদ</h4>
+                </button>
+                <!-- App Button 2 -->
+                <button onclick="openAppModal('বিষয়ভিত্তিক কুরআন', 'ঈমান, সালাত, যাকাত ও সমসাময়িক বিষয়ের ওপর আয়াত ও তাফসীর সেকশন...')" class="bg-white p-5 rounded-xl text-center shadow-xs border border-gray-100 hover:border-emerald-500 hover:shadow-md transition group">
+                    <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center mx-auto text-xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-list-ol"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800 mt-3 text-sm sm:text-base">বিষয়ভিত্তিক কুরআন</h4>
+                </button>
