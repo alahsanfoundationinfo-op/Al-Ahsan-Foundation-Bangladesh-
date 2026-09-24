@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>আল-আহসান ফাউন্ডেশন বাংলাদেশ</title>
-    <!-- Tailwind CSS for Modern UI -->
-    <script src="https://jsdelivr.net"></script>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cloudflare.com">
-    <!-- Google Fonts for Bengali -->
-    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- CDN Links Corrected -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Hind Siliguri', sans-serif; }
     </style>
@@ -34,7 +32,7 @@
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <!-- BRAND LOGO & TITLE -->
             <div class="flex items-center gap-3">
-                <img src="https://ibb.co" alt="Al-Ahsan Logo" class="h-14 w-14 rounded-full border-2 border-[#0b5c43]">
+                <div class="h-12 w-12 rounded-full border-2 border-[#0b5c43] bg-emerald-100 flex items-center justify-center font-bold text-[#0b5c43]">Logo</div>
                 <div>
                     <h1 class="text-xl md:text-2xl font-bold text-[#0b5c43]">আল-আহসান ফাউন্ডেশন</h1>
                     <p class="text-xs tracking-wider text-gray-500 font-semibold">BANGLADESH</p>
@@ -61,7 +59,7 @@
         <div class="container mx-auto max-w-3xl relative z-10">
             <span class="bg-emerald-800 text-yellow-300 text-xs px-3 py-1 rounded-full font-bold tracking-widest uppercase mb-4 inline-block">প্রতিষ্ঠিত: ২০১৮</span>
             <h2 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">মানবতার কল্যাণে অনুদান ও সহযোগিতার এক নির্ভরযোগ্য প্ল্যাটফর্ম</h2>
-            <p class="text-emerald-100 text-lg mb-8 max-w-xl mx-auto">সমাজের দুস্থ, অসহায় ও সুবিধাবঞ্চিত মানুষের জীবনমান উন্নয়নে আমরা নিরলসভাবে কাজ করে যাচ্ছি।</p>
+            <p class="text-emerald-100 text-lg mb-8 max-w-xl mx-auto">社会的 দুস্থ, অসহায় ও সুবিধাবঞ্চিত মানুষের জীবনমান উন্নয়নে আমরা নিরলসভাবে কাজ করে যাচ্ছি।</p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="#donation" class="bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-yellow-300 transition">সরাসরি অনুদান</a>
                 <a href="#about" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-emerald-900 transition">আমাদের লক্ষ্য</a>
@@ -81,7 +79,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 <div class="bg-emerald-50 p-4 rounded-xl text-center border border-emerald-100 shadow-sm">
                     <p class="text-xs text-gray-500 font-bold uppercase mb-1">চলমান ওয়াক্ত</p>
-                    <p class="text-2xl font-bold text-emerald-800" id="current-waqt">লোডিং...</p>
+                    <p class="text-2xl font-bold text-emerald-800" id="current-waqt">আসোর</p>
                 </div>
                 <div class="bg-amber-50 p-4 rounded-xl text-center border border-amber-100 shadow-sm">
                     <p class="text-xs text-gray-500 font-bold uppercase mb-1">লাইভ সময়</p>
@@ -106,7 +104,7 @@
                 </div>
                 <div class="bg-gray-50 p-4 rounded-xl border hover:border-emerald-500 transition shadow-xs">
                     <p class="font-bold text-gray-700">আসর</p>
-                    <p class="text-emerald-700 font-bold text-lg mt-1">MD:১২ PM</p>
+                    <p class="text-emerald-700 font-bold text-lg mt-1">০৪:১২ PM</p>
                 </div>
                 <div class="bg-gray-50 p-4 rounded-xl border hover:border-emerald-500 transition shadow-xs">
                     <p class="font-bold text-gray-700">মাগরিব</p>
@@ -123,7 +121,7 @@
         </div>
     </section>
 
-    <!-- NEW FEATURE: কওমি লাইব্রেরি ও কোরআন অ্যাপ সেকশন -->
+    <!-- QURAN APP SECTION -->
     <section id="quran-app" class="py-12 bg-emerald-50 px-4 border-t border-b border-emerald-100">
         <div class="container mx-auto max-w-5xl">
             <div class="text-center mb-10">
@@ -132,19 +130,52 @@
                 <p class="text-gray-600 text-sm mt-1">দ্বীনি শিক্ষা ও জ্ঞান অর্জনের জন্য আপনার ডিজিটাল কওমি অ্যাপ</p>
             </div>
 
-            <!-- App Dashboard/Grid Layout -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <!-- App Button 1 -->
                 <button onclick="openAppModal('কুরআন মাজিদ', 'এখানে সম্পূর্ণ ৩০ পারা কুরআন কারীম বাংলা অনুবাদ ও অডিওসহ পড়ার ব্যবস্থা যুক্ত হচ্ছে...')" class="bg-white p-5 rounded-xl text-center shadow-xs border border-gray-100 hover:border-emerald-500 hover:shadow-md transition group">
                     <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-book-quran"></i>
                     </div>
                     <h4 class="font-bold text-gray-800 mt-3 text-sm sm:text-base">কুরআন মাজিদ</h4>
                 </button>
-                <!-- App Button 2 -->
                 <button onclick="openAppModal('বিষয়ভিত্তিক কুরআন', 'ঈমান, সালাত, যাকাত ও সমসাময়িক বিষয়ের ওপর আয়াত ও তাফসীর সেকশন...')" class="bg-white p-5 rounded-xl text-center shadow-xs border border-gray-100 hover:border-emerald-500 hover:shadow-md transition group">
                     <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center mx-auto text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-list-ol"></i>
                     </div>
                     <h4 class="font-bold text-gray-800 mt-3 text-sm sm:text-base">বিষয়ভিত্তিক কুরআন</h4>
                 </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL FOR BUTTON CLICK -->
+    <div id="appModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-xl p-6 max-w-md w-full relative">
+            <h3 id="modalTitle" class="text-xl font-bold text-[#0b5c43] mb-2"></h3>
+            <p id="modalBody" class="text-gray-600 text-sm mb-4"></p>
+            <button onclick="closeAppModal()" class="bg-[#0b5c43] text-white px-4 py-2 rounded-lg font-bold w-full">বন্ধ করুন</button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('live-time').innerText = now.toLocaleTimeString();
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        function openAppModal(title, content) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalBody').innerText = content;
+            document.getElementById('appModal').classList.remove('hidden');
+            document.getElementById('appModal').classList.add('flex');
+        }
+
+        function closeAppModal() {
+            document.getElementById('appModal').classList.add('hidden');
+            document.getElementById('appModal').classList.remove('flex');
+        }
+    </script>
+</body>
+</html>
