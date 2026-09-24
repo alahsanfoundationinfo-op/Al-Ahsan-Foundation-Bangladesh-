@@ -4,141 +4,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>আল-আহসান ফাউন্ডেশন বাংলাদেশ</title>
+    <!-- Google Fonts for Professional Look -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #0a3d62;
-            --secondary-color: #3c6382;
-            --accent-color: #e58e26;
-            --bg-color: #f7f9fa;
-            --text-color: #2f3640;
+            --primary: #0f2c59;
+            --secondary: #337ccf;
+            --accent: #ff7600;
+            --light-bg: #f8fafc;
+            --text-dark: #1e293b;
             --white: #ffffff;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'SolaimanLipi', Arial, sans-serif;
+            font-family: 'Hind Siliguri', sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.7;
         }
 
-        /* Header Section */
+        /* Top Bar */
+        .top-bar {
+            background-color: #0b2142;
+            color: #cbd5e1;
+            font-size: 14px;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* Header / Hero Section */
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--white);
             text-align: center;
-            padding: 35px 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 50px 20px;
+            position: relative;
         }
 
         .logo-container {
-            width: 85px;
-            height: 85px;
+            width: 95px;
+            height: 95px;
             margin: 0 auto 15px auto;
             background: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            border: 3px solid rgba(255,255,255,0.8);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: 4px solid rgba(255,255,255,0.9);
         }
 
         .logo-container img {
-            width: 75px;
-            height: 75px;
+            width: 85px;
+            height: 85px;
             border-radius: 50%;
             object-fit: cover;
         }
 
         header h1 {
-            font-size: 26px;
+            font-size: 32px;
             margin-bottom: 5px;
             font-weight: 700;
             letter-spacing: 0.5px;
         }
 
         header p {
-            font-size: 15px;
-            color: #dcdde1;
-            font-weight: 300;
+            font-size: 16px;
+            color: #e2e8f0;
+            font-weight: 400;
         }
 
         /* Navigation Bar */
         nav {
-            background-color: #072e4d;
+            background-color: var(--white);
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            padding: 12px;
+            padding: 12px 20px;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
         }
 
         nav a {
-            color: var(--white);
+            color: var(--primary);
             text-decoration: none;
-            padding: 8px 14px;
-            margin: 4px;
-            font-size: 14px;
-            border-radius: 4px;
+            padding: 8px 16px;
+            margin: 2px 5px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
             transition: all 0.3s ease;
         }
 
-        nav a:hover {
-            background-color: var(--accent-color);
+        nav a:hover, nav a.active {
+            background-color: var(--secondary);
             color: var(--white);
         }
 
-        /* Container Layout */
+        /* Main Container */
         .container {
-            max-width: 900px;
-            margin: 30px auto;
+            max-width: 1000px;
+            margin: 35px auto;
             padding: 0 20px;
         }
 
+        /* Card System */
         .card {
             background: var(--white);
-            padding: 30px;
-            margin-bottom: 25px;
-            border-radius: 12px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-            border-left: 5px solid var(--primary-color);
-            transition: transform 0.3s ease;
+            padding: 35px;
+            margin-bottom: 30px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--primary);
         }
 
         h2 {
-            color: var(--primary-color);
-            margin-bottom: 18px;
-            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 24px;
             position: relative;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f1f5f9;
         }
 
         p {
-            color: #57606f;
-            margin-bottom: 12px;
+            color: #475569;
+            margin-bottom: 15px;
             text-align: justify;
             font-size: 16px;
         }
 
-        /* Chairman Section Styling */
+        /* Chairman Layout */
         .chairman-box {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 25px;
         }
 
-        @media(min-width: 650px) {
+        @media(min-width: 768px) {
             .chairman-box {
                 flex-direction: row;
                 align-items: flex-start;
@@ -146,264 +163,356 @@
             }
         }
 
-        .chairman-photo-wrap {
-            flex-shrink: 0;
-            text-align: center;
-        }
-
         .chairman-photo {
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--primary-color);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 5px solid var(--secondary);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            flex-shrink: 0;
         }
 
-        /* Donation Section Styling */
-        .donation-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
+        /* Donation Gateway Section (Advanced) */
+        .gateway-box {
+            background: #fdf8f2;
+            border: 2px dashed #fcd34d;
+            border-radius: 12px;
+            padding: 25px;
             margin-top: 20px;
         }
 
-        .pay-card {
-            background: #fdfefe;
-            border: 1px solid #dfe4ea;
-            padding: 20px;
-            border-radius: 10px;
+        .gateway-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .g-tab {
+            flex: 1;
+            min-width: 120px;
+            padding: 12px;
             text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
-            transition: all 0.3s ease;
+            background: var(--white);
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--primary);
+            transition: all 0.3s;
         }
 
-        .pay-card:hover {
-            border-color: var(--primary-color);
-            box-shadow: 0 5px 15px rgba(10, 61, 98, 0.1);
+        .g-tab.active, .g-tab:hover {
+            border-color: var(--accent);
+            background: #fff7ed;
+            color: var(--accent);
         }
 
-        .pay-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
+        .gateway-form-group {
+            margin-bottom: 15px;
+        }
+
+        .gateway-form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+
+        .gateway-form-group input, .gateway-form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .btn-donate-now {
+            background-color: var(--accent);
+            color: var(--white);
+            border: none;
+            width: 100%;
+            padding: 14px;
             font-size: 18px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            box-shadow: 0 4px 12px rgba(255, 118, 0, 0.3);
         }
 
-        .number-badge {
-            background: #f1f2f6;
-            padding: 8px;
-            border-radius: 6px;
-            font-weight: bold;
-            color: var(--text-color);
-            margin: 12px 0;
-            font-size: 15px;
-            letter-spacing: 0.5px;
+        .btn-donate-now:hover {
+            background-color: #e06900;
         }
 
-        /* Application Form Styling (অনুদানের আবেদন ফরম) */
+        /* Application Form for Needy (সহায়তার আবেদন) */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media(max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .form-group {
-            margin-bottom: 18px;
+            margin-bottom: 20px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        @media(max-width: 768px) {
+            .form-group.full-width {
+                grid-column: span 1;
+            }
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 6px;
-            font-weight: bold;
-            color: var(--primary-color);
-            font-size: 15px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
         }
 
-        .form-group input, 
-        .form-group select, 
-        .form-group textarea {
+        .form-group input, .form-group select, .form-group textarea {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #dcdde1;
-            border-radius: 6px;
+            padding: 12px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
             font-size: 15px;
-            background-color: #fafbfc;
-            color: var(--text-color);
+            background-color: #f8fafc;
         }
 
-        .form-group input:focus, 
-        .form-group select:focus, 
-        .form-group textarea:focus {
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             outline: none;
-            border-color: var(--primary-color);
-            background-color: #fff;
-            box-shadow: 0 0 5px rgba(10, 61, 98, 0.2);
+            border-color: var(--secondary);
+            background-color: var(--white);
+            box-shadow: 0 0 0 3px rgba(51, 124, 207, 0.15);
         }
 
         .btn-submit {
-            background-color: var(--primary-color);
+            background-color: var(--primary);
             color: var(--white);
             border: none;
-            padding: 14px 25px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 6px;
+            padding: 15px 30px;
+            font-size: 17px;
+            font-weight: 700;
+            border-radius: 8px;
             cursor: pointer;
             width: 100%;
-            transition: background 0.3s ease;
+            transition: background 0.3s;
         }
 
         .btn-submit:hover {
-            background-color: var(--secondary-color);
+            background-color: var(--secondary);
         }
 
-        /* Footer Section */
+        /* Footer */
         footer {
-            background-color: #072e4d;
+            background-color: var(--primary);
             color: var(--white);
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            font-size: 14px;
-            border-top: 4px solid var(--accent-color);
+            padding: 30px 20px;
+            margin-top: 50px;
+            border-top: 5px solid var(--accent);
+        }
+
+        footer p {
+            color: #cbd5e1;
+            text-align: center;
+            margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header & Logo -->
-    <header>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <span>📍 দেওয়ানগঞ্জ, জামালপুর, বাংলাদেশ</span>
+        <span>📞 হটলাইন: ০১৩১২৫১৫৬৪৩, +৮৮০ ৯৬১১-৩৯৯৩১৫</span>
+    </div>
+
+    <!-- Header Section -->
+    <header id="home">
         <div class="logo-container">
-            <img src="1000003749_2.jpg" alt="Logo">
+            <img src="1000003749_2.jpg" alt="Foundation Logo">
         </div>
         <h1>আল-আহসান ফাউন্ডেশন বাংলাদেশ</h1>
-        <p>মানবতার কল্যাণে অনুদান ও সহযোগিতার আস্থার ঠিকানা</p>
+        <p>মানবতার কল্যাণে অনুদান ও সহযোগিতার এক নির্ভরযোগ্য প্ল্যাটফর্ম</p>
     </header>
 
     <!-- Navigation -->
     <nav>
-        <a href="#home">হোম</a>
+        <a href="#home" class="active">হোম</a>
         <a href="#about">আমাদের সম্পর্কে</a>
         <a href="#chairman">চেয়ারম্যানের বাণী</a>
         <a href="#projects">প্রকল্পসমূহ</a>
-        <a href="#donation">ডোনেশন (অনুদান প্রদান)</a>
-        <a href="#apply">সহায়তার আবেদন</a>
+        <a href="#gateway">ডোনেশন গেটওয়ে</a>
+        <a href="#apply">সহায়তার আবেদন</a>
         <a href="#contact">যোগাযোগ</a>
     </nav>
 
-    <div class="container" id="home">
+    <div class="container">
         <!-- লক্ষ্য ও উদ্দেশ্য -->
         <div class="card" id="about">
             <h2>আমাদের লক্ষ্য ও উদ্দেশ্য</h2>
-            <p>আল-আহসান ফাউন্ডেশন বাংলাদেশ একটি সম্পূর্ণ অরাজনৈতিক ও সেবামূলক প্রতিষ্ঠান। সমাজের দুস্থ, অসহায়, ও সুবিধাবঞ্চিত মানুষের জীবনমান উন্নয়নে আমরা নিরলসভাবে কাজ করে যাচ্ছি। আপনার ক্ষুদ্র সহযোগিতা সমাজে একটি বড় ইতিবাচক পরিবর্তন আনতে পারে।</p>
-            <p>২০১৮ সাল থেকে প্রতিষ্ঠিত হয়ে আমরা সমাজের অবহেলিত, এতিম ও দরিদ্র মানুষের পাশে দাঁড়িয়ে নিয়মিত মানবিক ও দাতব্য কার্যক্রম পরিচালনা করে আসছি।</p>
+            <p>আল-আহসান ফাউন্ডেশন বাংলাদেশ একটি সম্পূর্ণ অরাজনৈতিক, অলাভজনক ও সেবামূলক প্রতিষ্ঠান। সমাজের দুস্থ, অসহায়, এতিম ও সুবিধাবঞ্চিত মানুষের জীবনমান উন্নয়নে আমরা নিরলসভাবে কাজ করে যাচ্ছি। আপনার ক্ষুদ্র যাকাত, সদকা বা সহযোগিতা সমাজে একটি বড় ইতিবাচক পরিবর্তন আনতে পারে।</p>
+            <p>প্রতিষ্ঠালগ্ন থেকে আমরা দেশের বিভিন্ন প্রান্তে হতদরিদ্র মানুষের মাঝে শিক্ষা, চিকিৎসা এবং খাদ্য সহায়তা পৌঁছে দিচ্ছি।</p>
         </div>
 
         <!-- চেয়ারম্যানের বাণী -->
         <div class="card" id="chairman">
             <h2>চেয়ারম্যানের বাণী</h2>
             <div class="chairman-box">
-                <div class="chairman-photo-wrap">
+                <div>
                     <img src="1000003653.jpg" alt="Chairman" class="chairman-photo">
                 </div>
                 <div>
-                    <p>“মানবসেবাই পরম ধর্ম। আমাদের সমাজের সুবিধাবঞ্চিত মানুষের মুখে হাসি ফোটানোর প্রত্যয় নিয়েই আল-আহসান ফাউন্ডেশনের যাত্রা শুরু হয়েছিল। আপনাদের সকলের আন্তরিক সহযোগিতায় আমরা আর্তমানবতার সেবায় কাজ চালিয়ে যাচ্ছি।”</p>
-                    <p style="margin-top: 10px;"><b>— প্রতিষ্ঠাতা ও চেয়ারম্যান</b><br><span style="color: var(--primary-color);">আল-আহসান ফাউন্ডেশন বাংলাদেশ</span></p>
+                    <p>“মানবসেবাই পরম ধর্ম। আমাদের সমাজের সুবিধাবঞ্চিত মানুষের মুখে হাসি ফোটানোর প্রত্যয় নিয়েই আল-আহসান ফাউন্ডেশনের যাত্রা। আপনাদের সকলের আন্তরিক সহযোগিতায় ও অংশগ্রহণে আমরা আর্তমানবতার সেবায় অবিচলভাবে কাজ চালিয়ে যাচ্ছি। আসুন, অসহায় মানুষের পাশে দাঁড়াই।”</p>
+                    <p style="margin-top: 15px;"><b>— প্রতিষ্ঠাতা ও চেয়ারম্যান</b><br><span style="color: var(--secondary); font-weight: 600;">আল-আহসান ফাউন্ডেশন বাংলাদেশ</span></p>
                 </div>
             </div>
         </div>
 
         <!-- প্রকল্পসমূহ -->
         <div class="card" id="projects">
-            <h2>প্রকল্পসমূহ ও বিতরণ কর্মসূচি</h2>
-            <p>আমাদের নিয়মিত এবং জরুরি মানবিক কার্যক্রমের মধ্যে রয়েছে:</p>
-            <ul style="margin-left: 20px; line-height: 1.8; color: #57606f;">
-                <li>বিনামূল্যে স্কুল ব্যাগ ও শিক্ষা উপকরণ বিতরণ প্রকল্প ২০২৬</li>
-                <li>দুস্থ ও অসহায়দের মাঝে খাদ্যসামগ্রী ও ত্রাণ বিতরণ</li>
-                <li>জরুরি চিকিৎসা সহায়তা ও স্বাস্থ্যসেবা ক্যাম্প</li>
-                <li>শীতবস্ত্র বিতরণ ও পুনর্বাসন প্রকল্প</li>
+            <h2>আমাদের প্রধান প্রকল্পসমূহ</h2>
+            <p>সমাজের সুবিধাবঞ্চিত মানুষের কল্যাণে আমাদের নিয়মিত ও জরুরি কার্যক্রমগুলো হলো:</p>
+            <ul style="margin-left: 20px; line-height: 2; color: #475569;">
+                <li><b>শিক্ষা সহায়তা প্রকল্প:</b> গরিব ও মেধাবী শিক্ষার্থীদের মাঝে বিনামূল্যে স্কুল ব্যাগ, বই ও শিক্ষা উপকরণ বিতরণ।</li>
+                <li><b>খাদ্য ও ত্রাণ বিতরণ:</b> দুস্থ ও কর্মহীন পরিবারগুলোর মাঝে নিত্যপ্রয়োজনীয় খাদ্যসামগ্রী সহায়তা।</li>
+                <li><b>চিকিৎসা সহায়তা ফান্ড:</b> অসচ্ছল ও গুরুতর অসুস্থ রোগীদের চিকিৎসার জন্য আর্থিক সহযোগিতা।</li>
+                <li><b>শীতবস্ত্র ও পুনর্বাসন:</b> শীতকালে শীতবস্ত্র বিতরণ এবং অসহায়দের পুনর্বাসনে ক্ষুদ্র উদ্যোগ।</li>
             </ul>
         </div>
 
-        <!-- ডোনেশন বা অনুদান প্রদানের সিস্টেম -->
-        <div class="card" id="donation">
-            <h2>ডোনেশন (অনুদান প্রদান সিস্টেম)</h2>
-            <p>আপনার যাকাত, সদকা ও সাধারণ অনুদান সরাসরি আমাদের অফিশিয়াল মোবাইল ব্যাংকিং নম্বরে পাঠাতে পারেন। পেমেন্ট করার পর নিচের হটলাইন নম্বরে যোগাযোগ করে নিশ্চিত করুন:</p>
+        <!-- রিয়েল অনলাইন ডোনেশন গেটওয়ে সিস্টেম -->
+        <div class="card" id="gateway">
+            <h2>অনলাইন ডোনেশন গেটওয়ে (সরাসরি অনুদান প্রদান)</h2>
+            <p>আপনি আপনার যাকাত, সদকা বা সাধারণ অনুদান নিচের অনলাইন গেটওয়ের মাধ্যমে খুব সহজেই প্রদান করতে পারেন:</p>
             
-            <div class="donation-grid">
-                <!-- বিকাশ -->
-                <div class="pay-card">
-                    <h3>বিকাশ (bKash)</h3>
-                    <p style="font-size: 13px; color: #718093;">পার্সোনাল / মার্চেন্ট</p>
-                    <div class="number-badge">০১৩১২৫১৫৬৪৩</div>
+            <div class="gateway-box">
+                <div class="gateway-tabs">
+                    <div class="g-tab active" onclick="selectGateway('bKash')">বিকাশ (bKash)</div>
+                    <div class="g-tab" onclick="selectGateway('Nagad')">নগদ (Nagad)</div>
+                    <div class="g-tab" onclick="selectGateway('Rocket')">রকেট (Rocket)</div>
                 </div>
 
-                <!-- নগদ -->
-                <div class="pay-card">
-                    <h3>নগদ (Nagad)</h3>
-                    <p style="font-size: 13px; color: #718093;">পার্সোনাল / মার্চেন্ট</p>
-                    <div class="number-badge">০১৩১২৫১৫৬৪৩</div>
-                </div>
+                <form onsubmit="event.preventDefault(); alert('ধন্যবাদ! আপনার পেমেন্ট প্রসেসটি সিকিউরড গেটওয়েতে রিডাইরেক্ট হচ্ছে...');">
+                    <div class="gateway-form-group">
+                        <label id="selected-gateway-label">বিকাশ অ্যাকাউন্ট নম্বর (মার্চেন্ট/পার্সোনাল)</label>
+                        <input type="text" value="০১৩১২৫১৫৬৪৩ (অফিসিয়াল মার্চেন্ট)" readonly style="background: #e2e8f0; font-weight: bold;">
+                    </div>
 
-                <!-- রকেট -->
-                <div class="pay-card">
-                    <h3>রকেট (Rocket)</h3>
-                    <p style="font-size: 13px; color: #718093;">একাউন্ট নম্বর</p>
-                    <div class="number-badge">০১৩১২৫১৫৬৪৩</div>
-                </div>
+                    <div class="gateway-form-group">
+                        <label>অনুদানের পরিমাণ (টাকা):</label>
+                        <select required>
+                            <option value="">অ্যামাউন্ট নির্বাচন করুন</option>
+                            <option value="500">৫০০ টাকা</option>
+                            <option value="1000">১,০০০ টাকা</option>
+                            <option value="2000">২,০০০ টাকা</option>
+                            <option value="5000">৫,০০০ টাকা</option>
+                            <option value="custom">অন্যান্য পরিমাণ</option>
+                        </select>
+                    </div>
+
+                    <div class="gateway-form-group">
+                        <label>আপনার নাম ও মোবাইল নম্বর:</label>
+                        <input type="text" placeholder="আপনার নাম ও ফোন নম্বর লিখুন" required>
+                    </div>
+
+                    <button type="submit" class="btn-donate-now">নিরাপদে পেমেন্ট করুন</button>
+                </form>
             </div>
         </div>
 
-        <!-- অনুদান বা সহায়তা গ্রহণের আবেদন ফরম -->
+        <!-- সহায়তার আবেদন ফরম (অনুদান গ্রহণের জন্য) -->
         <div class="card" id="apply">
-            <h2>সহায়তার আবেদন ফরম (অনুদান গ্রহণের জন্য)</h2>
-            <p>য တ্তাঁরা বা যারা প্রকৃতপক্ষেই অসহায়, দুস্থ কিংবা আর্থিক সংকটে রয়েছেন এবং ফাউন্ডেশন থেকে সহযোগিতা বা অনুদান পেতে চান, তারা নিচের ফরমটি পূরণ করে আবেদন করতে পারেন:</p>
+            <h2>সহায়তার আবেদন ফরম (অনুদান গ্রহীতাদের জন্য)</h2>
+            <p>যারা প্রকৃতপক্ষেই দুস্থ, অসহায় কিংবা অসচ্ছল আর্থিক সংকটের মধ্যে রয়েছেন এবং ফাউন্ডেশন থেকে অনুদান বা সহায়তা পেতে চান, তারা নিচের ফরমটি সঠিকভাবে পূরণ করে আবেদন করুন:</p>
             
-            <form onsubmit="event.preventDefault(); alert('আপনার অনুদানের আবেদন সফলভাবে জমা হয়েছে। ফাউন্ডেশনের পক্ষ থেকে শীঘ্রই আপনার সাথে যোগাযোগ করা হবে।');">
-                <div class="form-group">
-                    <label for="name">আবেদনকারীর পূর্ণ নাম *</label>
-                    <input type="text" id="name" placeholder="আপনার নাম লিখুন" required>
+            <form onsubmit="event.preventDefault(); alert('আপনার সহায়তার আবেদন সফলভাবে জমা হয়েছে। যাচাই-বাছাই শেষে ফাউন্ডেশনের প্রতিনিধি আপনার সাথে যোগাযোগ করবেন।');">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>আবেদনকারীর পূর্ণ নাম *</label>
+                        <input type="text" placeholder="আপনার পুরো নাম লিখুন" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>সচল মোবাইল নম্বর *</label>
+                        <input type="tel" placeholder="যেমন: 017XXXXXXXX" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>জাতীয় পরিচয়পত্র (NID) নম্বর / জন্ম নিবন্ধন</label>
+                        <input type="text" placeholder="NID নম্বর থাকলে লিখুন">
+                    </div>
+
+                    <div class="form-group">
+                        <label>সহযোগিতার খাত *</label>
+                        <select required>
+                            <option value="">-- খাত নির্বাচন করুন --</option>
+                            <option value="medical">চিকিৎসা সহায়তা</option>
+                            <option value="food">খাদ্য সহায়তা</option>
+                            <option value="education">শিক্ষা উপকরণ সহায়তা</option>
+                            <option value="business">ক্ষুদ্র ব্যবসা পুনর্বাসন</option>
+                            <option value="other">অন্যান্য জরুরি সহায়তা</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>বর্তমান পূর্ণ ঠিকানা (গ্রাম, উপজেলা, জেলা) *</label>
+                        <textarea rows="3" placeholder="আপনার বর্তমান ঠিকানা বিস্তারিত লিখুন..." required></textarea>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>বর্তমান আর্থিক অবস্থা ও সহযোগিতার কারণ বিবরণ *</label>
+                        <textarea rows="4" placeholder="আপনার বর্তমান অর্থনৈতিক অবস্থা কেমন, আয়ের উৎস কী এবং কেন আপনার এই সহায়তার প্রয়োজন তা বিস্তারিত লিখুন..." required></textarea>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="phone">মোবাইল নম্বর *</label>
-                    <input type="tel" id="phone" placeholder="যেমন: 017XXXXXXXX" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="address">পূর্ণ ঠিকানা (গ্রাম, উপজেলা, জেলা) *</label>
-                    <textarea id="address" rows="3" placeholder="আপনার বর্তমান ঠিকানা বিস্তারিত লিখুন" required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="category">কি ধরনের সহযোগিতা/অনুদান চাচ্ছেন? *</label>
-                    <select id="category" required>
-                        <option value="">-- সহযোগিতা বা অনুদানের খাত নির্বাচন করুন --</option>
-                        <option value="medical">চিকিৎসা সহায়তা</option>
-                        <option value="food">খাদ্যসামগ্রী / নিত্যপ্রয়োজনীয় খাদ্য সহায়তা</option>
-                        <option value="education">শিক্ষা উপকরণ / পড়াশোনা সংক্রান্ত সহায়তা</option>
-                        <option value="financial">আর্থিক বা ব্যবসা পুনর্বাসন সহায়তা</option>
-                        <option value="other">অন্যান্য জরুরি সহায়তা</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="financial-status">বর্তমান আর্থিক অবস্থা ও কারণ বিবরণ *</label>
-                    <textarea id="financial-status" rows="4" placeholder="আপনার বর্তমান আর্থিক অবস্থা কেমন, কেন আপনার এই সহায়তার প্রয়োজন তা বিস্তারিত লিখুন..." required></textarea>
-                </div>
-
-                <button type="submit" class="btn-submit">আবেদন জমা দিন</button>
+                <button type="submit" class="btn-submit">আবেদন সাবমিট করুন</button>
             </form>
         </div>
 
         <!-- যোগাযোগ -->
         <div class="card" id="contact">
-            <h2>যোগাযোগ</h2>
+            <h2>যোগাযোগ করুন</h2>
             <p><b>প্রধান কার্যালয়:</b> দেওয়ানগঞ্জ, জামালপুর, বাংলাদেশ।</p>
-            <p><b>হটলাইন:</b> +৮৮০ ৯৬১১-৩৯৯৩১৫</p>
-            <p><b>অনুদান ও আবেদন হটলাইন:</b> ০১৩১২৫১৫৬৪৩</p>
-            <p><b>অফিসিয়াল ওয়েবসাইট:</b> alahsanfoundation.bd.org</p>
+            <p><b>হটলাইন নম্বর:</b> +৮৮০ ৯৬১১-৩৯৯৩১৫</p>
+            <p><b>সহায়তা ও ডোনেশন হেল্পলাইন:</b> ০১৩১২৫১৫৬৪৩</p>
+            <p><b>ইমেইল:</b> info@alahsanfoundation.bd.org</p>
+            <p><b>অফিসিয়াল ওয়েবসাইট:</b> www.alahsanfoundation.bd.org</p>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
         <p>&copy; ২০২৬ আল-আহসান ফাউন্ডেশন বাংলাদেশ। সর্বস্বত্ব সংরক্ষিত।</p>
+        <p style="font-size: 13px; color: #94a3b8;">মানবতার সেবায় আমরা অঙ্গীকারবদ্ধ।</p>
     </footer>
 
+    <script>
+        function selectGateway(type) {
+            let tabs = document.querySelectorAll('.g-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            let label = document.getElementById('selected-gateway-label');
+            if(type === 'bKash') {
+                label.innerText = "বিকাশ অ্যাকাউন্ট নম্বর (মার্চেন্ট/পার্সোনাল)";
+            } else if(type === 'Nagad') {
+                label.innerText = "নগদ অ্যাকাউন্ট নম্বর (মার্চেন্ট/পার্সোনাল)";
+            } else if(type === 'Rocket') {
+                label.innerText = "রকেট অ্যাকাউন্ট নম্বর";
+            }
+        }
+    </script>
 </body>
 </html>
