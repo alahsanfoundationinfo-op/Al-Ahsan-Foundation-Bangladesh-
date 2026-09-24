@@ -17,6 +17,7 @@
             --primary-color: #0F5A47;
             --secondary-color: #083C2F;
             --accent-color: #258C73;
+            --nagad-color: #D12027;
             --light-bg: #F4F8F6;
             --text-dark: #1F2937;
             --text-light: #FFFFFF;
@@ -55,11 +56,13 @@
             font-size: 1.3rem;
             color: var(--primary-color);
             font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
         .logo-text p {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #666;
+            font-weight: 600;
         }
 
         .nav-links {
@@ -73,6 +76,7 @@
             font-weight: 600;
             color: var(--text-dark);
             transition: color 0.3s;
+            font-size: 0.95rem;
         }
 
         .nav-links a:hover {
@@ -88,29 +92,49 @@
             cursor: pointer;
             font-weight: 600;
             transition: background 0.3s;
+            display: inline-block;
+            white-space: nowrap;
         }
 
         .btn-donate:hover {
             background-color: var(--secondary-color);
         }
 
-        /* Hero Section - Updated Image */
+        .btn-nagad {
+            background-color: var(--nagad-color);
+            color: #fff !important;
+        }
+        .btn-nagad:hover {
+            background-color: #a6171d;
+        }
+
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(15, 90, 71, 0.85), rgba(8, 60, 47, 0.9)), url('https://images.unsplash.com/photo-1591604466107-ec97de577aff?q=80&w=1200') center/cover no-repeat;
+            background: linear-gradient(rgba(15, 90, 71, 0.88), rgba(8, 60, 47, 0.92)), 
+                        url('https://images.unsplash.com/photo-1609599006353-e629aaabfeae?q=80&w=1200') center/cover no-repeat;
             color: var(--text-light);
             text-align: center;
-            padding: 100px 20px;
+            padding: 90px 20px;
         }
 
         .hero h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 15px;
+            font-weight: 700;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             max-width: 700px;
             margin: 0 auto 25px auto;
+            line-height: 1.7;
+        }
+
+        .hero-btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         /* About Section */
@@ -123,8 +147,8 @@
         .section-title {
             text-align: center;
             color: var(--primary-color);
-            font-size: 2rem;
-            margin-bottom: 30px;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
             position: relative;
         }
 
@@ -140,6 +164,7 @@
         .about-text p {
             margin-bottom: 15px;
             font-size: 1.05rem;
+            text-align: justify;
         }
 
         /* Services / Projects */
@@ -149,7 +174,7 @@
 
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 25px;
             margin-top: 20px;
         }
@@ -166,6 +191,7 @@
         .card h3 {
             color: var(--primary-color);
             margin-bottom: 10px;
+            font-size: 1.2rem;
         }
 
         /* Donation Info */
@@ -173,7 +199,7 @@
             background-color: var(--primary-color);
             color: var(--text-light);
             border-radius: 10px;
-            padding: 40px;
+            padding: 40px 20px;
             text-align: center;
         }
 
@@ -190,9 +216,10 @@
             padding: 15px 25px;
             border-radius: 6px;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 220px;
         }
 
-        /* Modal / Form Styles */
+        /* Modal Styles */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -200,7 +227,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.65);
             z-index: 2000;
             justify-content: center;
             align-items: center;
@@ -211,11 +238,13 @@
             background: #FFFFFF;
             width: 100%;
             max-width: 500px;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            padding: 30px 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.3);
             position: relative;
             animation: fadeIn 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         @keyframes fadeIn {
@@ -225,17 +254,19 @@
 
         .close-btn {
             position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 1.5rem;
+            top: 12px;
+            right: 18px;
+            font-size: 1.8rem;
             cursor: pointer;
             color: #666;
+            line-height: 1;
         }
 
         .modal-card h3 {
             color: var(--primary-color);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-align: center;
+            font-size: 1.3rem;
         }
 
         .form-group {
@@ -247,14 +278,59 @@
             margin-bottom: 5px;
             font-weight: 600;
             color: var(--text-dark);
+            font-size: 0.95rem;
         }
 
-        .form-group input, .form-group textarea, .form-group select {
+        .form-group input, .form-group select {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--primary-color);
+        }
+
+        /* Amount Presets */
+        .amount-presets {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .preset-btn {
+            padding: 8px;
+            border: 1px solid var(--primary-color);
+            background: #fff;
+            color: var(--primary-color);
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .preset-btn.active, .preset-btn:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        /* Radio Options */
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
         }
 
         .btn-submit {
@@ -264,13 +340,25 @@
             border: none;
             padding: 12px;
             border-radius: 5px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             cursor: pointer;
             font-weight: 600;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
         }
 
         .btn-submit:hover {
             background-color: var(--secondary-color);
+        }
+
+        .btn-submit-nagad {
+            background-color: var(--nagad-color);
+        }
+        .btn-submit-nagad:hover {
+            background-color: #a6171d;
         }
 
         /* Footer */
@@ -279,17 +367,52 @@
             color: var(--text-light);
             text-align: center;
             padding: 20px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        /* Responsive */
+        /* Mobile Responsive Fix */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
-                gap: 15px;
+                gap: 12px;
+                padding: 12px 15px;
+                text-align: center;
             }
+
+            .logo-text h1 {
+                font-size: 1.15rem;
+            }
+
+            .logo-text p {
+                font-size: 0.7rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px 12px;
+                width: 100%;
+            }
+
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+
+            .btn-donate {
+                padding: 6px 14px;
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 60px 15px;
+            }
+
             .hero h2 {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -302,14 +425,14 @@
             <div class="logo">
                 <div class="logo-text">
                     <h1>AL-AHSAN FOUNDATION</h1>
-                    <p>BANGLADESH • EST 2018</p>
+                    <p>BANGLADESH </p>
                 </div>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">হোম</a></li>
                 <li><a href="#about">আমাদের সম্পর্কে</a></li>
                 <li><a href="#projects">কার্যক্রম</a></li>
-                <li><a href="#donate" class="btn-donate">দান করুন</a></li>
+                <li><button onclick="openDonateModal()" class="btn-donate btn-nagad">অনলাইনে দান করুন</button></li>
             </ul>
         </div>
     </header>
@@ -317,8 +440,11 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <h2>মানবসেবা ও ইসলামী শিক্ষার প্রসারেই আমাদের লক্ষ্য</h2>
-        <p>২০১৮ সাল থেকে আল-আহসান ফাউন্ডেশন বাংলাদেশ এতিম, দুস্থ ও অসচ্ছল মানুষের কল্যাণে এবং দ্বীনি শিক্ষা প্রসারে নিরলসভাবে কাজ করে যাচ্ছে।</p>
-        <button onclick="openJoinModal()" class="btn-donate" style="padding: 12px 30px; font-size: 1.1rem;">আমাদের সাথে যুক্ত হন</button>
+        <p>২০২৬ সাল থেকে আল-আহসান ফাউন্ডেশন বাংলাদেশ এতিম, দুস্থ ও অসচ্ছল মানুষের কল্যাণে এবং দ্বীনি শিক্ষা প্রসারে নিরলসভাবে কাজ করে যাচ্ছে।</p>
+        <div class="hero-btn-group">
+            <button onclick="openDonateModal()" class="btn-donate btn-nagad" style="padding: 12px 28px; font-size: 1rem;">সরাসরি দান করুন (নগদ/বিকাশ)</button>
+            <button onclick="openJoinModal()" class="btn-donate" style="padding: 12px 28px; font-size: 1rem; background-color: transparent; border: 2px solid #fff;">আমাদের সাথে যুক্ত হন</button>
+        </div>
     </section>
 
     <!-- About Section -->
@@ -326,7 +452,7 @@
         <h2 class="section-title">আমাদের সম্পর্কে</h2>
         <div class="about-content">
             <div class="about-text">
-                <p><strong>আল-আহসান ফাউন্ডেশন বাংলাদেশ</strong> ২০১৮ সালে প্রতিষ্ঠিত একটি অরাজনৈতিক, অলাভজনক মানবিক ও দ্বীনি সেবা সংস্থা।</p>
+                <p><strong>আল-আহসান ফাউন্ডেশন বাংলাদেশ</strong> ২০২৬ সালে প্রতিষ্ঠিত একটি অরাজনৈতিক, অলাভজনক মানবিক ও দ্বীনি সেবা সংস্থা।</p>
                 <p>কুরআন-সুন্নাহর আলোকে সমাজে এতিম ও দরিদ্র মানুষের মৌলিক অধিকার নিশ্চিত করা, কুরআন শিক্ষা ছড়িয়ে দেওয়া এবং যেকোনো দুর্যোগে দুর্গত মানুষের পাশে দাঁড়ানোই আমাদের মূল অঙ্গীকার।</p>
             </div>
         </div>
@@ -359,18 +485,84 @@
             <h2>আপনার দান অন্যের জীবন বদলে দিতে পারে</h2>
             <p>আপনার যাকাত, সদকা ও দানের অর্থ সরাসরি পৌঁছায় অসহায় মানুষদের হাতে।</p>
             
+            <div style="margin-top: 25px;">
+                <button onclick="openDonateModal()" class="btn-donate btn-nagad" style="padding: 14px 35px; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    অনলাইনে নগদ গেটওয়ে দিয়ে দান করুন
+                </button>
+            </div>
+
             <div class="payment-methods">
                 <div class="payment-card">
                     <h4>বিকাশ / নগদ (পার্সোনাল)</h4>
-                    <p>+880 1700-000000</p>
+                    <p>+8801312515643</p>
                 </div>
                 <div class="payment-card">
                     <h4>ব্যাংক হিসাব</h4>
-                    <p>আল-আহসান ফাউন্ডেশন বাংলাদেশ<br>হিসাব নং: ১২৩.৪৫৬.৭৮৯</p>
+                    <p>আল-আহসান ফাউন্ডেশন বাংলাদেশ<br>হিসাব নং: শীঘ্রই আসছে</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Donation Gateway Modal (নগদ পেমেন্ট ও অটো ডোনেশন) -->
+    <div id="donateModal" class="modal-overlay">
+        <div class="modal-card">
+            <span class="close-btn" onclick="closeDonateModal()">&times;</span>
+            <h3>অনলাইন পেমেন্ট গেটওয়ে</h3>
+            <form onsubmit="handleDonateSubmit(event)">
+                
+                <div class="form-group">
+                    <label>দানের ধরন নির্বাচন করুন:</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="donation_type" value="one_time" checked onclick="toggleAutoDonateNote(false)"> এককালীন দান
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="donation_type" value="auto_recurring" onclick="toggleAutoDonateNote(true)"> অটো ডোনেশন (মাসিক)
+                        </label>
+                    </div>
+                </div>
+
+                <div id="autoDonateNote" style="display: none; background: #fff3cd; color: #856404; padding: 10px; border-radius: 5px; font-size: 0.85rem; margin-bottom: 15px;">
+                    ℹ️ <strong>অটো ডোনেশন:</strong> নগদ Direct-Debit এর মাধ্যমে প্রতি মাসে আপনার সিলেক্ট করা পরিমাণ টাকা স্বয়ংক্রিয়ভাবে প্রদান করা হবে।
+                </div>
+
+                <div class="form-group">
+                    <label>দানের পরিমাণ (টাকা) *</label>
+                    <div class="amount-presets">
+                        <button type="button" class="preset-btn" onclick="setAmount(100)">৳১০০</button>
+                        <button type="button" class="preset-btn" onclick="setAmount(500)">৳৫০০</button>
+                        <button type="button" class="preset-btn" onclick="setAmount(1000)">৳১০০০</button>
+                        <button type="button" class="preset-btn" onclick="setAmount(5000)">৳৫০০০</button>
+                    </div>
+                    <input type="number" id="donationAmount" placeholder="অন্যান্য পরিমাণ লিখুন" required min="10">
+                </div>
+
+                <div class="form-group">
+                    <label>পেমেন্ট মেথড নির্বাচন করুন *</label>
+                    <select id="paymentGateway" required>
+                        <option value="nagad">নগদ (Nagad Direct/App)</option>
+                        <option value="bkash">বিকাশ (bKash Gateway)</option>
+                        <option value="card">ডেবিট/ক্রেডিট কার্ড</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>আপনার নাম *</label>
+                    <input type="text" placeholder="সম্পূর্ণ নাম লিখুন" required>
+                </div>
+
+                <div class="form-group">
+                    <label>মোবাইল নম্বর (নগদ একাউন্ট নম্বর) *</label>
+                    <input type="tel" placeholder="01XXXXXXXXX" required pattern="[0-9]{11}">
+                </div>
+
+                <button type="submit" class="btn-submit btn-submit-nagad">
+                    <span>পেমেন্ট গেটওয়েতে যান</span> &rarr;
+                </button>
+            </form>
+        </div>
+    </div>
 
     <!-- Modal Form (আমাদের সাথে যুক্ত হন) -->
     <div id="joinModal" class="modal-overlay">
@@ -405,11 +597,12 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2018 - 2026 আল-আহসান ফাউন্ডেশন বাংলাদেশ। সর্বস্বত্ব সংরক্ষিত।</p>
+        <p>&copy; 2026 আল-আহসান ফাউন্ডেশন বাংলাদেশ। সর্বস্বত্ব সংরক্ষিত।</p>
     </footer>
 
     <!-- JavaScript -->
     <script>
+        // Modal Controls
         function openJoinModal() {
             document.getElementById('joinModal').style.display = 'flex';
         }
@@ -418,14 +611,71 @@
             document.getElementById('joinModal').style.display = 'none';
         }
 
-        // Close modal when clicking outside of it
-        window.onclick = function(event) {
-            let modal = document.getElementById('joinModal');
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
+        function openDonateModal() {
+            document.getElementById('donateModal').style.display = 'flex';
         }
 
+        function closeDonateModal() {
+            document.getElementById('donateModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            let joinModal = document.getElementById('joinModal');
+            let donateModal = document.getElementById('donateModal');
+            if (event.target == joinModal) joinModal.style.display = "none";
+            if (event.target == donateModal) donateModal.style.display = "none";
+        }
+
+        // Amount Presets
+        function setAmount(val) {
+            document.getElementById('donationAmount').value = val;
+            let buttons = document.querySelectorAll('.preset-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // Toggle Auto-Donate Info
+        function toggleAutoDonateNote(show) {
+            document.getElementById('autoDonateNote').style.display = show ? 'block' : 'none';
+        }
+
+        // Handle Donation Form Submission & Redirect to Nagad
+        function handleDonateSubmit(event) {
+            event.preventDefault();
+            
+            let amount = document.getElementById('donationAmount').value;
+            let gateway = document.getElementById('paymentGateway').value;
+            let donationType = document.querySelector('input[name="donation_type"]:checked').value;
+
+            if (gateway === 'nagad') {
+                if (donationType === 'auto_recurring') {
+                    alert('ধন্যবাদ! আপনাকে নগদের "Direct Debit Auto-Donation" গেটওয়ে পেজে রিডাইরেক্ট করা হচ্ছে। প্রতি মাসে ' + amount + ' টাকা অটো-ডিডাক্ট হবে।');
+                } else {
+                    alert('আপনাকে নগদ পেমেন্ট গেটওয়েতে রিডাইরেক্ট করা হচ্ছে। টাকার পরিমাণ: ৳' + amount);
+                }
+                
+                /*
+                  নগদ মার্চেন্ট গেটওয়ে রিডাইরেক্ট কোড (Backend API Integration-এর পর এই URL ট্রিগার হবে):
+                  
+                  // Example Nagad API call endpoint on your server:
+                  fetch('/api/nagad/initiate-payment', {
+                      method: 'POST',
+                      body: JSON.stringify({ amount: amount, is_recurring: donationType === 'auto_recurring' })
+                  })
+                  .then(res => res.json())
+                  .then(data => { window.location.href = data.paymentUrl; });
+                */
+
+                // নগদ ডিপ-লিংক / মার্চেন্ট গেটওয়ে রিডাইরেক্ট সিমুলেশন
+                window.location.href = "https://mypayment.nagad.com.bd/"; 
+            } else {
+                alert('পেমেন্ট গেটওয়ে শীঘ্রই চালু হচ্ছে! বর্তমানে সরাসরি বিকাশ/নগদ পার্সোনাল নম্বরে (+8801312515643) সেন্ড মানি করুন।');
+            }
+
+            closeDonateModal();
+        }
+
+        // Handle Join Form Submission
         function handleFormSubmit(event) {
             event.preventDefault();
             alert('ধন্যবাদ! আপনার তথ্য সফলভাবে জমা হয়েছে। আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।');
@@ -434,4 +684,4 @@
     </script>
 
 </body>
-</html>
+</html>    
